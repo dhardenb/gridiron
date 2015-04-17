@@ -1,0 +1,327 @@
+
+#import "PlayerView.h"
+
+@implementation PlayerView
+
+- (id)initWithFrame:(CGRect)frame {
+    if ((self = [super initWithFrame:frame])) {}
+    return self;
+}
+
+@synthesize team;
+
+- (void) setPosition:(int)position
+{
+	myPosition = position;
+}
+
+- (void)drawRect:(CGRect)rect
+{	
+	if (self.team == HOME_TEAM)
+	{
+		if ([GameManager isHomeTeamOffense])
+		{
+			[self drawO:0];
+		}
+		else
+		{
+			[self drawX:0];
+		}
+	}
+	else // AWAY_TEAM
+	{
+		if ([GameManager isAwayTeamOffense])
+		{
+			[self drawO:1];
+		}
+		else
+		{
+			[self drawX:1];
+		}
+	}
+}
+
+- (void)drawO:(int)color
+{
+	CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    float length;
+    float xPos;
+    float yPos;
+    
+    if (self.bounds.size.width <  self.bounds.size.height)
+    {
+        length = self.bounds.size.width;
+    }
+    else
+    {
+        length = self.bounds.size.height;
+    }
+    
+    xPos = self.bounds.size.width / 2 - length / 2;
+    yPos = self.bounds.size.height / 2 - length / 2;
+	
+	if (((myPosition == LEFT_TACKLE ||
+		myPosition == LEFT_GAURD ||
+		myPosition == CENTER ||
+		myPosition == RIGHT_GAURD ||
+		myPosition == RIGHT_TACKLE)) &&
+		((([GameManager getAttackZoneSelected] != NORMAL_KICK_OFF) &&
+		([GameManager getAttackZoneSelected] != SQUIB_KICK_OFF) &&
+		([GameManager getAttackZoneSelected] != ONSIDE_KICK_OFF))))
+	{
+        CGContextSetLineWidth(context, length * 0.05);
+        
+        CGContextSetLineJoin(context, kCGLineJoinRound);
+        
+        CGContextSetRGBFillColor(context, 0.23, 0.0, 0.38, 1.0);
+        
+        CGContextSetRGBStrokeColor(context, 0.94, 0.75, 0.0, 1.0);
+        
+        CGContextMoveToPoint(context, xPos + length * 0.025, yPos + length * 0.025);
+        
+        CGContextAddLineToPoint(context, xPos + length * 0.95, yPos + length * 0.025);
+        
+        CGContextAddLineToPoint(context, xPos + length * 0.95, yPos + length * 0.95);
+        
+        CGContextAddLineToPoint(context, xPos + length * 0.025, yPos + length * 0.95);
+        
+        CGContextAddLineToPoint(context, xPos + length * 0.025, yPos + length * 0.025);
+        
+        CGContextDrawPath(context, kCGPathFillStroke);
+	}
+	else
+	{
+        CGContextSetLineWidth(context, length * 0.05);
+        
+        CGContextSetRGBFillColor(context, 0.23, 0.0, 0.38, 1.0);
+        
+        CGContextSetRGBStrokeColor(context, 0.94, 0.75, 0.0, 1.0);
+        
+        CGContextAddEllipseInRect(context, CGRectMake(length * 0.025, length * 0.025, length * 0.95, length * 0.95));
+        
+        CGContextDrawPath(context, kCGPathFillStroke);
+	}
+    
+    NSString *position;
+    
+    switch (myPosition)
+    {
+        case LEFT_WIDE_RECEIVER:
+        case RIGHT_WIDE_RECEIVER:
+            position = @"WR";
+            break;
+        case LEFT_SPLIT_END:
+        case RIGHT_SPLIT_END:
+            position = @"SE";
+            break;
+        case LEFT_TIGHT_END:
+        case RIGHT_TIGHT_END:
+            position = @"TE";
+            break;
+        case LEFT_TACKLE:
+        case RIGHT_TACKLE:
+            position = @"T";
+            break;
+        case LEFT_GAURD:
+        case RIGHT_GAURD:
+            position = @"G";
+            break;
+        case CENTER:
+            position = @"C";
+            break;
+        case QUARTER_BACK:
+            position = @"QB";
+            break;
+        case FULL_BACK:
+            position = @"FB";
+            break;
+        case LEFT_HALF_BACK:
+        case RIGHT_HALF_BACK:
+            position = @"HB";
+            break;
+        case TAIL_BACK:
+            position = @"TB";
+            break;
+            
+        default:
+            break;
+    }
+    
+    CGContextSetRGBStrokeColor(context, 1.0, 1.0, 1.0, 1.0);
+    CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 1.0);
+    UIFont *font = [UIFont fontWithName:@"Freshman" size:length * 0.33];
+    CGSize textSize = [position sizeWithFont:font];
+    [position drawAtPoint:CGPointMake(self.bounds.size.width * 0.5 - textSize.width * 0.45, self.bounds.size.height * 0.5 - textSize.height * 0.4) withFont:font];
+    CGContextSetLineWidth(context, length * 0.1);
+    CGContextDrawPath(context, kCGPathFillStroke);
+}
+
+- (void)drawX:(int)color
+{
+	CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    float length;
+    float xPos;
+    float yPos;
+    
+    if (self.bounds.size.width <  self.bounds.size.height)
+    {
+        length = self.bounds.size.width;
+    }
+    else
+    {
+        length = self.bounds.size.height;
+    }
+    
+    xPos = self.bounds.size.width / 2 - length / 2;
+    yPos = self.bounds.size.height / 2 - length / 2;
+    
+    if (((myPosition == LEFT_OFF_TACKLE_LEFT_DEFENDER ||
+          myPosition == LEFT_OFF_TACKLE_MIDDLE_DEFENDER ||
+          myPosition == LEFT_OFF_TACKLE_RIGHT_DEFENDER)) &&
+		((([GameManager getAttackZoneSelected] != NORMAL_KICK_OFF) &&
+          ([GameManager getAttackZoneSelected] != SQUIB_KICK_OFF) &&
+          ([GameManager getAttackZoneSelected] != ONSIDE_KICK_OFF))))
+	{
+        // Draw Shadow
+        CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 0.33);
+        CGContextAddRect(context, CGRectMake(xPos, yPos + length * 0.2, length * 0.8, length * 0.8));
+        CGContextFillPath(context);
+        
+		// Draw Player
+        CGContextSetRGBStrokeColor(context, 0.77, 0.78, 0.80, 1.0);
+        CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
+        CGContextSetLineWidth(context, length * 0.05);
+        CGContextSetLineJoin(context, kCGLineJoinRound);
+        CGContextBeginPath(context);
+        CGContextMoveToPoint(context, xPos + length * 0.1, yPos + length * 0.1);
+        CGContextAddLineToPoint(context, xPos + length * 0.9, yPos + length * 0.1);
+        CGContextAddLineToPoint(context, xPos + length * 0.9, yPos + length * 0.9);
+        CGContextAddLineToPoint(context, xPos + length * 0.1, yPos + length * 0.9);
+        CGContextAddLineToPoint(context, xPos + length * 0.1, yPos + length * 0.1);
+        CGContextClosePath(context);
+        CGContextDrawPath(context, kCGPathFillStroke);
+    }
+    else
+    {
+        // Draw Shadow
+        CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 0.33);
+        CGContextAddEllipseInRect(context, CGRectMake(xPos, yPos + length * 0.2, length * 0.8, length * 0.8));
+        CGContextFillPath(context);
+        
+        // Draw Player
+        CGContextSetRGBStrokeColor(context, 0.77, 0.78, 0.80, 1.0);
+        CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
+        CGContextSetLineWidth(context, length * 0.05);
+        CGContextAddEllipseInRect(context, CGRectMake(xPos + length * 0.1, yPos + length * 0.1, length * 0.8, length * 0.8));
+        CGContextDrawPath(context, kCGPathFillStroke);
+    }
+    
+    NSString *position = @"D";
+    
+    CGContextSetRGBStrokeColor(context, 0.77, 0.78, 0.80, 1.0);
+    CGContextSetRGBFillColor(context, 0.77, 0.78, 0.80, 1.0);
+    UIFont *font = [UIFont fontWithName:@"Freshman" size:length * 0.33];
+    CGSize textSize = [position sizeWithFont:font];
+    [position drawAtPoint:CGPointMake(self.bounds.size.width * 0.5 - textSize.width * 0.45, self.bounds.size.height * 0.5 - textSize.height * 0.4) withFont:font];
+    CGContextSetLineWidth(context, length * 0.1);
+    CGContextDrawPath(context, kCGPathFillStroke);
+}
+
+- (void)touchesBegan:(NSSet*) touches withEvent:(UIEvent*)event
+{
+	// WARNING: HACK Attack!!!!
+	//
+	// These three player touch methods are hacked so that only the first player
+	// moved in a multi touch situation gets sent up to the defense view.
+	// I think the better way to do this is to only consider touches[0], 
+	// which I believe returns only the first touch. As opposed to the way
+	// I do it now which is to consider "anyObject" from the touch array!
+	//
+	
+	if ([GameManager getGameState] == WAITING_TO_PICK_DEFENSIVE_STANCE)
+	{
+		int playerCurrentlyMoving = [(id<PlayerMover>)[self superview] getPlayerCurrentlyMoving];
+		
+		if (playerCurrentlyMoving == NO_POSITION_SELECTED)
+		{
+			[(id<PlayerMover>)[self superview] setPlayerCurrentlyMoving:myPosition];
+			
+			CGPoint point = [[touches anyObject] locationInView:self];
+			CGPoint hitTestPoint = [[touches anyObject] locationInView:self.superview];
+			
+			// WARNING _ This is a HACK
+			//
+			// It turns out that one of the reasons extra defenders were appearing was that
+			// the tappable area of the players extends BELOW the tappable area of the play
+			// selection zones. So even though the play would get moved, no starting play
+			// zone would get recorded. Then, when the move ended no play zone would get a
+			// defender subtracted because there was no starting zone to decrement!!!!
+			//
+			// So, now I modify the hitTestPoint that I send to the defense view so that
+			// the Y corrdinate should be well within the bounds of the tapped play
+			// zone.
+			//
+			//In the future, the players should really just know what play zones they are
+			// defending, instead of relying on checking their relative position on the
+			// screen all the time!
+			//
+			hitTestPoint.y = hitTestPoint.y - point.y * .5;
+		
+			// I record this so that I can track the players movement across the screen
+			myStartLocation = point;
+		
+			[(id<DefenseViewTouchEvents>)[self superview] playerTouchesBegan:hitTestPoint];
+		}
+	}
+}
+
+- (void)touchesMoved: (NSSet*)touches withEvent:(UIEvent*) event
+{
+	if ([GameManager getGameState] == WAITING_TO_PICK_DEFENSIVE_STANCE)
+	{
+		int playerCurrentlyMoving = [(id<PlayerMover>)[self superview] getPlayerCurrentlyMoving];
+		
+		if (playerCurrentlyMoving == myPosition)
+		{
+			CGPoint movePoint = [[touches anyObject] locationInView:self];
+			CGPoint hitTestPoint = [[touches anyObject] locationInView:self.superview];
+		
+			CGRect frame = [self frame];
+		
+			frame.origin.x += movePoint.x - myStartLocation.x;
+			frame.origin.y += movePoint.y - myStartLocation.y;
+		
+			[self setFrame:frame];
+		
+			[(id<DefenseViewTouchEvents>)[self superview] playerTouchesMoved:hitTestPoint];
+		}
+	}
+}
+
+- (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event {
+	
+    if ([GameManager getGameState] == WAITING_TO_PICK_DEFENSIVE_STANCE)
+	{
+		int playerCurrentlyMoving = [(id<PlayerMover>)[self superview] getPlayerCurrentlyMoving];
+		
+		if (playerCurrentlyMoving == myPosition)
+		{
+			CGPoint hitTestPoint = [[touches anyObject] locationInView:self.superview];
+	
+			[(id<DefenseViewTouchEvents>)self.superview playerTouchesEnded:hitTestPoint];
+			
+			[(id<PlayerMover>)self.superview setPlayerCurrentlyMoving:NO_POSITION_SELECTED];
+		}
+	}
+
+	[self.superview playerTapped:myPosition];
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
+@end

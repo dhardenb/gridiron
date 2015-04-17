@@ -1,0 +1,78 @@
+
+#import <UIKit/UIKit.h>
+#import "Football.h"
+#import "GameManager.h"
+#import "LocationSelectorView.h"
+#import "LocationTapper.h"
+#import "PlayerView.h"
+#import "ZoneSelector.h"
+
+@interface OffenseView : UIView <LocationTapper>
+{
+	bool isVisable;
+	
+	int myLocationBeingTapped;
+	
+	Football *myFootball;
+	
+	PlayerView *myLeftWideReceiver;
+	PlayerView *myLeftSplitEnd;
+	PlayerView *myLeftTightEnd;
+	PlayerView *myLeftTackle;
+	PlayerView *myLeftGaurd;
+	PlayerView *myCenter;
+	PlayerView *myRightGaurd;
+	PlayerView *myRightTackle;
+	PlayerView *myRightTightEnd;
+	PlayerView *myRightSplitEnd;
+	PlayerView *myRightWideReceiver;
+	PlayerView *myQuarterBack;
+	PlayerView *myFullBack;
+	PlayerView *myLeftHalfBack;
+	PlayerView *myRightHalfBack;
+	PlayerView *myTailBack;
+	
+	ZoneSelector *myLeftWideReceiverTarget;
+	ZoneSelector *myLeftSplitEndTarget;
+	ZoneSelector *myLeftTightEndTarget;
+	ZoneSelector *myRightTightEndTarget;
+	ZoneSelector *myRightSplitEndTarget;
+	ZoneSelector *myRightWideReceiverTarget;
+	ZoneSelector *myQuarterBackTarget;
+	ZoneSelector *myFullBackTarget;
+	ZoneSelector *myLeftHalfBackTarget;
+	ZoneSelector *myRightHalfBackTarget;
+	ZoneSelector *myTailBackTarget;
+	
+	LocationSelectorView *myLeftWideReceiverLocation;
+	LocationSelectorView *myLeftSplitEndLocation;
+	LocationSelectorView *myLeftTightEndLocation;
+	LocationSelectorView *myRightTightEndLocation;
+	LocationSelectorView *myRightSplitEndLocation;
+	LocationSelectorView *myRightWideReceiverLocation;
+	LocationSelectorView *myQuarterBackLocation;
+	LocationSelectorView *myFullBackLocation;
+	LocationSelectorView *myLeftHalfBackLocation;
+	LocationSelectorView *myRightHalfBackLocation;
+	LocationSelectorView *myTailBackLocation;
+}
+
+- (void)askQuestion:(int)promptButton;
+- (void)show;
+- (void)hide;
+
+- (void)locationTapped:(int)locationSelected;
+- (int)getLocationBeingTapped;
+- (void)setLocationBeingTapped:(int)location;
+
+- (void)resetEachPlayersCurrentTeam;
+- (void)movePlayersIntoCurrentFormation;
+- (void)resetSelectorsAndTargets;
+
+- (void)playerTapped:(int)playerView;
+
+- (void)playerTouchesBegan:(int)position;
+- (void)playerTouchesMoved:(CGPoint)movePoint :(CGPoint)hitPointTest;
+- (void)playerTouchesEnded:(CGPoint)hitPointTest;
+
+@end

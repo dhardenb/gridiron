@@ -1,0 +1,86 @@
+#import <QuartzCore/QuartzCore.h>
+#import <UIKit/UIKit.h>
+#import "AskQuestions.h"
+#import "Football.h"
+#import "Player.h"
+#import "PlayerView.h"
+#import "PromptButton.h"
+
+@interface AnimationView : UIView {
+	bool isVisable;
+	
+    CALayer *myFootball;
+	
+	CALayer *myLeftWideReceiver;
+	CALayer *myLeftSplitEnd;
+	CALayer *myLeftTightEnd;
+	CALayer *myLeftTackle;
+	CALayer *myLeftGuard;
+	CALayer *myCenter;
+	CALayer *myRightGuard;
+	CALayer *myRightTackle;
+	CALayer *myRightTightEnd;
+	CALayer *myRightSplitEnd;
+	CALayer *myRightWideReceiver;
+	CALayer *myQuarterBack;
+	CALayer *myFullBack;
+	CALayer *myLeftHalfBack;
+	CALayer *myRightHalfBack;
+	CALayer *myTailBack;
+	
+	CALayer *myLeftSweepLeftDefender;
+	CALayer *myLeftSweepMiddleDefender;
+	CALayer *myLeftSweepRightDefender;
+	
+	CALayer *myLeftOffTackleLeftDefender;
+	CALayer *myLeftOffTackleMiddleDefender;
+	CALayer *myLeftOffTackleRightDefender;
+	
+	CALayer *myInsideLeftDefender;
+	CALayer *myInsideMiddleDefender;
+	CALayer *myInsideRightDefender;
+	
+	CALayer *myRightOffTackleLeftDefender;
+	CALayer *myRightOffTackleMiddleDefender;
+	CALayer *myRightOffTackleRightDefender;
+	
+	CALayer *myRightSweepLeftDefender;
+	CALayer *myRightSweepMiddleDefender;
+	CALayer *myRightSweepRightDefender;
+	
+	CALayer *myShortLeftFlankLeftDefender;
+	CALayer *myShortLeftFlankMiddleDefender;
+	CALayer *myShortLeftFlankRightDefender;
+	
+	CALayer *myShortMiddleFlankLeftDefender;
+	CALayer *myShortMiddleFlankMiddleDefender;
+	CALayer *myShortMiddleFlankRightDefender;
+	
+	CALayer *myShortRightFlankLeftDefender;
+	CALayer *myShortRightFlankMiddleDefender;
+	CALayer *myShortRightFlankRightDefender;
+	
+	CALayer *myMediumLeftSideLineLeftDefender;
+	CALayer *myMediumLeftSideLineMiddleDefender;
+	CALayer *myMediumLeftSideLineRightDefender;
+	
+	CALayer *myMediumRightSideLineLeftDefender;
+	CALayer *myMediumRightSideLineMiddleDefender;
+	CALayer *myMediumRightSideLineRightDefender;
+	
+	CALayer *myLongLeftDefender;
+	CALayer *myLongMiddleDefender;
+	CALayer *myLongRightDefender;
+	
+	PromptButton *myDoneButton;
+	
+	int resultRoll;
+}
+
+- (NSMutableArray*)fuzzFrameArray:(NSMutableArray*)frameArray;
+- (NSMutableArray*)getFrameArray:(NSString *)position;
+- (void)askQuestion:(int)promptButton;
+- (void)show;
+- (void)hide;
+
+@end

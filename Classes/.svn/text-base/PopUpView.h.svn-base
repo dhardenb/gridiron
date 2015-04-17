@@ -1,0 +1,20 @@
+#import <UIKit/UIKit.h>
+#import "AskQuestions.h"
+#import "PromptButton.h"
+#import "GameManager.h"
+
+@interface PopUpView : UIView {
+	bool isVisable;
+	int myType;
+	UILabel *myHeader;
+	UILabel *myMessage;
+	PromptButton *myReadyButton;
+}
+
+- (BOOL)isVisable;
+- (void)setType:(int)type;
+- (void)show;
+- (void)hide;
+- (void)askQuestion:(int)promptButton;
+
+@end

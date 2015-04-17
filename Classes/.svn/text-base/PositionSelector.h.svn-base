@@ -1,0 +1,16 @@
+//
+//  PositionSelector.h
+//  Gridiron
+//
+//  Created by David Hardenbrook on 2/28/09.
+//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "Defines.h"
+
+@interface PositionSelector : UIView
+{
+}
+
+@end

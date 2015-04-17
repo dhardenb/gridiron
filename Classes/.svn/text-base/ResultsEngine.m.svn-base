@@ -1,0 +1,220 @@
+//
+//  ResultsEngine.m
+//  Gridiron
+//
+//  Created by David Hardenbrook on 4/23/09.
+//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//
+
+#import "ResultsEngine.h"
+
+@implementation ResultsEngine
+
+/*+ (int)getResult:(PlaySelector *)currentPlay
+{	
+	int result = 99;
+	int numberOfDefenders = 1;
+	
+	int roll = [RollManager rollTwoSixSidedDice];
+	
+	NSString *playKey = @"";
+	
+	if ([currentPlay getOffensivePlayer] == QUARTER_BACK)
+	{
+		playKey = [playKey stringByAppendingString:@"quarterback_"];
+	}
+	else if ([currentPlay getOffensivePlayer] == FULL_BACK)
+	{
+		playKey = [playKey stringByAppendingString:@"fullback_"];
+	}
+	else if ([currentPlay getOffensivePlayer] == TAIL_BACK)
+	{
+		playKey = [playKey stringByAppendingString:@"tailback_"];
+	}
+	else if ([currentPlay getOffensivePlayer] == RIGHT_TIGHT_END)
+	{
+		playKey = [playKey stringByAppendingString:@"tightend_"];
+	}
+	else if ([currentPlay getOffensivePlayer] == RIGHT_WIDE_RECEIVER)
+	{
+		playKey = [playKey stringByAppendingString:@"wide_receiver_"];
+	}
+	else if ([currentPlay getOffensivePlayer] == LEFT_WIDE_RECEIVER)
+	{
+		playKey = [playKey stringByAppendingString:@"wide_receiver_"];
+	}
+	else if ([currentPlay getOffensivePlayer] == KICKER)
+	{
+		playKey = [playKey stringByAppendingString:@"kicker_"];
+	}
+	else if ([currentPlay getOffensivePlayer] == PUNTER)
+	{
+		playKey = [playKey stringByAppendingString:@"punter_"];
+	}
+
+	if ([currentPlay getAttackZone] == LEFT_INSIDE_RUSHING_LANE)
+	{
+		playKey = [playKey stringByAppendingString:@"inside_rush_"];
+		numberOfDefenders = [GameManager getInsideRushingZone];
+	}
+	else if ([currentPlay getAttackZone] == RIGHT_OFFTACKLE_RUSHING_LANE)
+	{
+		playKey = [playKey stringByAppendingString:@"offtackle_rush_"];
+		numberOfDefenders = [GameManager getOffTackleRightRushingZone];
+	}
+	else if ([currentPlay getAttackZone] == LEFT_OFFTACKLE_RUSHING_LANE)
+	{
+		playKey = [playKey stringByAppendingString:@"offtackle_rush_"];
+		numberOfDefenders = [GameManager getOffTackleLeftRushingZone];
+	}
+	else if ([currentPlay getAttackZone] == RIGHT_SWEEP_RUSHING_LANE)
+	{
+		playKey = [playKey stringByAppendingString:@"sweep_rush_"];
+		numberOfDefenders = [GameManager getSweepRightRushingZone];
+	}
+	else if ([currentPlay getAttackZone] == LEFT_SWEEP_RUSHING_LANE)
+	{
+		playKey = [playKey stringByAppendingString:@"sweep_rush_"];
+		numberOfDefenders = [GameManager getSweepLeftRushingZone];
+	}
+	else if ([currentPlay getAttackZone] == SHORT_LEFT_PASSING_ZONE)
+	{
+		playKey = [playKey stringByAppendingString:@"short_outside_pass_"];
+		numberOfDefenders = [GameManager getShortLeftPassingZone];
+	}
+	else if ([currentPlay getAttackZone] == SHORT_RIGHT_PASSING_ZONE)
+	{
+		playKey = [playKey stringByAppendingString:@"short_outside_pass_"];
+		numberOfDefenders = [GameManager getShortRightPassingZone];
+	}
+	else if ([currentPlay getAttackZone] == SHORT_MIDDLE_PASSING_ZONE)
+	{
+		playKey = [playKey stringByAppendingString:@"short_inside_pass_"];
+		numberOfDefenders = [GameManager getShortMiddlePassingZone];
+	}
+	else if ([currentPlay getAttackZone] == MIDDLE_LEFT_PASSING_ZONE)
+	{
+		playKey = [playKey stringByAppendingString:@"medium_pass_"];
+		numberOfDefenders = [GameManager getMiddleLeftPassingZone];
+	}
+	else if ([currentPlay getAttackZone] == MIDDLE_RIGHT_PASSING_ZONE)
+	{
+		playKey = [playKey stringByAppendingString:@"medium_pass_"];
+		numberOfDefenders = [GameManager getMiddleRightPassingZone];
+	}
+	else if ([currentPlay getAttackZone] == DEEP_PASSING_ZONE)
+	{
+		playKey = [playKey stringByAppendingString:@"long_pass_"];
+		numberOfDefenders = [GameManager getLongPassingZone];
+	}
+	else if ([currentPlay getAttackZone] == NORMAL_KICK_OFF)
+	{
+		playKey = [playKey stringByAppendingString:@"normal_kick_off_"];
+	}
+	else if ([currentPlay getAttackZone] == SQUIB_KICK_OFF)
+	{
+		playKey = [playKey stringByAppendingString:@"squib_kick_off_"];
+	}
+	else if ([currentPlay getAttackZone] == ONSIDE_KICK_OFF)
+	{
+		playKey = [playKey stringByAppendingString:@"onside_kick_off_"];
+	}
+	else if ([currentPlay getAttackZone] == NORMAL_PUNT)
+	{
+		playKey = [playKey stringByAppendingString:@"normal_punt_"];
+	}
+	else if ([currentPlay getAttackZone] == FAKE_PUNT)
+	{
+		playKey = [playKey stringByAppendingString:@"fake_punt_"];
+	}
+	else if ([currentPlay getAttackZone] == NORMAL_FIELD_GOAL)
+	{
+		playKey = [playKey stringByAppendingString:@"normal_field_goal_"];
+	}
+	
+	
+	if (numberOfDefenders == 1)
+	{
+		playKey = [playKey stringByAppendingString:@"balanced_"];
+	}
+	else if (numberOfDefenders == 0)
+	{
+		
+		if ([GameManager getAttackZoneSelected] == LEFT_SWEEP_RUSHING_LANE ||
+			[GameManager getAttackZoneSelected] == LEFT_OFFTACKLE_RUSHING_LANE ||
+			[GameManager getAttackZoneSelected] == LEFT_INSIDE_RUSHING_LANE ||
+			[GameManager getAttackZoneSelected] == RIGHT_OFFTACKLE_RUSHING_LANE ||
+			[GameManager getAttackZoneSelected] == RIGHT_SWEEP_RUSHING_LANE)
+		{
+			playKey = [playKey stringByAppendingString:@"pass_"];
+		}
+		else
+		{
+			playKey = [playKey stringByAppendingString:@"run_"];
+		}
+	}
+	else // 2 Defenders
+	{
+		if ([GameManager getAttackZoneSelected] == LEFT_SWEEP_RUSHING_LANE ||
+			[GameManager getAttackZoneSelected] == LEFT_OFFTACKLE_RUSHING_LANE ||
+			[GameManager getAttackZoneSelected] == LEFT_INSIDE_RUSHING_LANE ||
+			[GameManager getAttackZoneSelected] == RIGHT_OFFTACKLE_RUSHING_LANE ||
+			[GameManager getAttackZoneSelected] == RIGHT_SWEEP_RUSHING_LANE)
+		{
+			playKey = [playKey stringByAppendingString:@"run_"];
+		}
+		else
+		{
+			playKey = [playKey stringByAppendingString:@"pass_"];
+		}
+	}
+
+	if (roll == 2)
+	{
+		playKey = [playKey stringByAppendingString:@"roll_2"];
+	}
+	else if (roll == 3)
+	{
+		playKey = [playKey stringByAppendingString:@"roll_3"];
+	}
+	else if (roll == 4)
+	{
+		playKey = [playKey stringByAppendingString:@"roll_4"];
+	}
+	else if (roll == 5)
+	{
+		playKey = [playKey stringByAppendingString:@"roll_5"];
+	}
+	else if (roll == 6)
+	{
+		playKey = [playKey stringByAppendingString:@"roll_6"];
+	}
+	else if (roll == 7)
+	{
+		playKey = [playKey stringByAppendingString:@"roll_7"];
+	}
+	else if (roll == 8)
+	{
+		playKey = [playKey stringByAppendingString:@"roll_8"];
+	}
+	else if (roll == 9)
+	{
+		playKey = [playKey stringByAppendingString:@"roll_9"];
+	}
+	else if (roll == 10)
+	{
+		playKey = [playKey stringByAppendingString:@"roll_10"];
+	}
+	else if (roll == 11)
+	{
+		playKey = [playKey stringByAppendingString:@"roll_11"];
+	}
+	else if (roll == 12)
+	{
+		playKey = [playKey stringByAppendingString:@"roll_12"];
+	}
+	
+	return [GameManager getEntryFromPlayResults:playKey];
+}*/
+
+@end

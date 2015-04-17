@@ -1,0 +1,10 @@
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+@interface GridironView : UIView {
+	float xScalingFactor;
+	float yScalingFactor;
+}
+
+@end

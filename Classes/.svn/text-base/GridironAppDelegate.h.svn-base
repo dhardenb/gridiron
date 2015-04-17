@@ -1,0 +1,14 @@
+
+#import <UIKit/UIKit.h>
+#import "Defines.h"
+#import "GridironViewController.h"
+#import "PlayFromScrimmageViewController.h"
+#import "GameManager.h"
+
+@interface GridironAppDelegate : NSObject <UIApplicationDelegate>
+{
+	GridironViewController *gridironViewController;
+    PlayFromScrimmageViewController *playFromScrimmageViewController;
+}
+@end
+

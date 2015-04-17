@@ -1,0 +1,44 @@
+
+#import "GridironView.h"
+
+
+@implementation GridironView
+
+- (id)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {}
+	return self;
+}
+
+- (void)scaleSubViews {
+	[self setScalingFactor];
+	[self updateSubViewFrames];
+}
+
+- (void)setScalingFactor {
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		xScalingFactor = 2.13;
+		yScalingFactor = 2.4;
+	}
+	else {
+		xScalingFactor = 1.0;
+		yScalingFactor = 1.0;
+	}
+}
+
+- (void)updateSubViewFrames {
+	CGRect frame;
+	for (int x = 0; x < self.subviews.count; x++) {
+		UIView *subview = [self.subviews objectAtIndex:x];
+		frame.origin.x = subview.frame.origin.x * xScalingFactor;
+		frame.origin.y = subview.frame.origin.y * yScalingFactor;
+		frame.size.width = subview.frame.size.width * xScalingFactor;
+		frame.size.height = subview.frame.size.height *yScalingFactor;
+		[subview setFrame:frame];
+	}
+}
+
+- (void)dealloc {
+    [super dealloc];
+}
+
+@end

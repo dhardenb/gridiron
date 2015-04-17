@@ -1,0 +1,158 @@
+//
+//  PopUpView.m
+//  Gridiron
+//
+//  Created by David Hardenbrook on 1/18/10.
+//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//
+
+#import "PopUpView.h"
+
+@implementation PopUpView
+
+- (id)initWithFrame:(CGRect)frame
+{
+    if ((self = [super initWithFrame:frame]))
+	{
+		self.alpha = 0.0;
+		isVisable = FALSE;
+		
+		myHeader = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [self frame].size.width, 30)];
+		myHeader.textAlignment = UITextAlignmentCenter;
+		myHeader.textColor = [UIColor whiteColor];
+		myHeader.backgroundColor = [UIColor clearColor];
+		myHeader.text = @"";
+		[self addSubview:myHeader];
+		
+		myMessage = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, [self frame].size.width-20, [self frame].size.height-60)];
+		myMessage.textColor = [UIColor whiteColor];
+		myMessage.backgroundColor = [UIColor clearColor];
+		myMessage.numberOfLines = 0;
+		[self addSubview:myMessage];
+		
+		myReadyButton = [[PromptButton alloc] initWithFrame:CGRectMake([self frame].size.width-110, [self frame].size.height-35, 100, 25)];
+		[myReadyButton setUserInteractionEnabled:YES];
+		myReadyButton.backgroundColor = [UIColor clearColor];
+		[myReadyButton setType:CLEAR_PLAY_RESULTS_BUTTON];
+		[myReadyButton setLabel:@">"];
+		[self addSubview:myReadyButton];
+		[myReadyButton release];
+	}
+    return self;
+}
+
+- (BOOL)isVisable
+{
+	return isVisable;
+}
+
+- (void) setType:(int)type
+{
+	myType = type;
+}
+
+- (void)drawRect:(CGRect)rect
+{
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	
+	CGContextSetRGBStrokeColor(context,  0.0, 0.0, 0.0, 1.0);
+	CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 0.9);
+	
+	CGRect rrect = CGRectMake(0, 0, [self frame].size.width, [self frame].size.height);
+	CGFloat radius = 30.0;
+	
+	CGFloat minx = CGRectGetMinX(rrect), midx = CGRectGetMidX(rrect), maxx = CGRectGetMaxX(rrect);
+	CGFloat miny = CGRectGetMinY(rrect), midy = CGRectGetMidY(rrect), maxy = CGRectGetMaxY(rrect);
+	
+	CGContextMoveToPoint(context, minx, midy);
+	CGContextAddArcToPoint(context, minx, miny, midx, miny, radius);
+	CGContextAddArcToPoint(context, maxx, miny, maxx, midy, radius);
+	CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, radius);
+	CGContextAddArcToPoint(context, minx, maxy, minx, midy, radius);
+	
+	CGContextClosePath(context);
+	CGContextDrawPath(context, kCGPathFillStroke);
+	 
+	if (myType == WAITING_TO_PICK_OFFENSIVE_PLAYER)
+	{
+		myHeader.text = @"Offensive Overview";
+		myMessage.text = @"1) Tap a player\n\n2) Tap an empty position OR tap a play zone\n\n3) Tap Ready";
+		[myReadyButton setType:CLEAR_POP_UP_BUTTON];
+	}
+	else if (myType == WAITING_TO_PICK_DEFENSIVE_STANCE)
+	{
+		myHeader.text = @"Defensive Overview";
+		myMessage.text = @"1) Select from the default defensive formations by tapping the Formation Button.\n\n2) Select your defensive stance by tapping the Stance Button.\n\n3) Adjust your players positions by dragging them to the zone you want to strengthen.";
+		[myReadyButton setType:CLEAR_POP_UP_BUTTON];
+	}
+}
+
+- (void)askQuestion:(int)promptButton
+{	
+	[(id<AskQuestions>)self.superview askQuestion:promptButton];
+}
+
+- (void)hide
+{
+	if (isVisable)
+	{
+		CGContextRef context = UIGraphicsGetCurrentContext();
+		
+		self.alpha = 1.0;
+		
+		[UIView beginAnimations:nil context:context];
+		[UIView setAnimationCurve:UIViewAnimationCurveLinear];
+		[UIView setAnimationDuration:0.5];
+		
+		self.alpha = 0.0;
+		
+		[UIView commitAnimations];
+		
+		isVisable = FALSE;
+	}
+}
+
+- (void)show
+{
+	if (!isVisable)
+	{
+		CGContextRef context = UIGraphicsGetCurrentContext();
+		
+		self.alpha = 0.0;
+		
+		[UIView beginAnimations:nil context:context];
+		[UIView setAnimationCurve:UIViewAnimationCurveLinear];
+		[UIView setAnimationDuration:0.5];
+		
+		self.alpha = 1.0;
+		
+		[UIView commitAnimations];
+		
+		isVisable = TRUE;
+	}
+}
+
+- (BOOL) pointInside:(CGPoint)point withEvent:(UIEvent *)event 
+{
+	for (int x = 0; x < self.subviews.count; x++)
+	{
+		UIView *subview = [self.subviews objectAtIndex:x];
+		
+		if (point.x >= subview.frame.origin.x && point.x <= subview.frame.origin.x + [subview frame].size.width)
+		{
+			if (point.y >= subview.frame.origin.y && point.y <= subview.frame. origin.y + [subview frame].size.height)
+			{
+				return YES;
+			}
+		}
+	}
+	
+	return NO;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
+@end

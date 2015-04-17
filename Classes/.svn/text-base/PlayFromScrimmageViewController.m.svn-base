@@ -1,0 +1,24 @@
+
+#import "PlayFromScrimmageViewController.h"
+
+@implementation PlayFromScrimmageViewController
+
+- (void)loadView
+{	
+	PlayFromScrimmageView *myView = [[PlayFromScrimmageView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+	self.view = myView;
+	[myView release];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+	return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+}
+
+- (void)dealloc
+{
+	[super dealloc];
+}
+
+@end
+

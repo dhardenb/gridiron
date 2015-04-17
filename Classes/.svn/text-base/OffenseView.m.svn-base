@@ -1,0 +1,1355 @@
+//
+//  OffenseView.m
+//  Gridiron
+//
+//  Created by David Hardenbrook on 5/30/09.
+//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//
+
+#import "OffenseView.h"
+
+@implementation OffenseView
+
+-(int)getLocationBeingTapped
+{
+	return myLocationBeingTapped;
+}
+
+-(void)setLocationBeingTapped:(int)location
+{
+	myLocationBeingTapped = location;
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    if ((self = [super initWithFrame:frame]))
+	{
+		self.alpha = 0.0;
+		isVisable = FALSE;
+		myLocationBeingTapped = 0;
+		
+		// Football
+		
+		myFootball = [[Football alloc] initWithFrame:CGRectMake(235, 200, 10, 20)];
+		myFootball.backgroundColor = [UIColor clearColor];
+		myFootball.userInteractionEnabled = NO;
+		[self addSubview:myFootball];
+		[myFootball release];
+		
+		// Offensive Position Icon Targets
+		
+		myLeftWideReceiverTarget = [[ZoneSelector alloc] initWithFrame:CGRectMake(0, 200, 40, 40)];
+		myLeftWideReceiverTarget.backgroundColor = [UIColor clearColor];
+		myLeftWideReceiverTarget.userInteractionEnabled = NO;
+		[self addSubview:myLeftWideReceiverTarget];
+		[myLeftWideReceiverTarget release];
+		
+		myLeftSplitEndTarget = [[ZoneSelector alloc] initWithFrame:CGRectMake(50, 210, 40, 40)];
+		myLeftSplitEndTarget.backgroundColor = [UIColor clearColor];
+		myLeftSplitEndTarget.userInteractionEnabled = NO;
+		[self addSubview:myLeftSplitEndTarget];
+		[myLeftSplitEndTarget release];
+		
+		myLeftTightEndTarget = [[ZoneSelector alloc] initWithFrame:CGRectMake(100, 200, 40, 40)];
+		myLeftTightEndTarget.backgroundColor = [UIColor clearColor];
+		myLeftTightEndTarget.userInteractionEnabled = NO;
+		[self addSubview:myLeftTightEndTarget];
+		[myLeftTightEndTarget release];
+		
+		myRightTightEndTarget = [[ZoneSelector alloc] initWithFrame:CGRectMake(340, 200, 40, 40)];
+		myRightTightEndTarget.backgroundColor = [UIColor clearColor];
+		myRightTightEndTarget.userInteractionEnabled = NO;
+		[self addSubview:myRightTightEndTarget];
+		[myRightTightEndTarget release];
+		
+		myRightSplitEndTarget = [[ZoneSelector alloc] initWithFrame:CGRectMake(390, 210, 40, 40)];
+		myRightSplitEndTarget.backgroundColor = [UIColor clearColor];
+		myRightSplitEndTarget.userInteractionEnabled = NO;
+		[self addSubview:myRightSplitEndTarget];
+		[myRightSplitEndTarget release];
+		
+		myRightWideReceiverTarget = [[ZoneSelector alloc] initWithFrame:CGRectMake(440, 200, 40, 40)];
+		myRightWideReceiverTarget.backgroundColor = [UIColor clearColor];
+		myRightWideReceiverTarget.userInteractionEnabled = NO;
+		[self addSubview:myRightWideReceiverTarget];
+		[myRightWideReceiverTarget release];
+		
+		myQuarterBackTarget = [[ZoneSelector alloc] initWithFrame:CGRectMake(220, 220, 40, 40)];
+		myQuarterBackTarget.backgroundColor = [UIColor clearColor];
+		myQuarterBackTarget.userInteractionEnabled = NO;
+		[self addSubview:myQuarterBackTarget];
+		[myQuarterBackTarget release];
+		
+		myFullBackTarget = [[ZoneSelector alloc] initWithFrame:CGRectMake(220, 250, 40, 40)];
+		myFullBackTarget.backgroundColor = [UIColor clearColor];
+		myFullBackTarget.userInteractionEnabled = NO;
+		[self addSubview:myFullBackTarget];
+		[myFullBackTarget release];
+		
+		myLeftHalfBackTarget = [[ZoneSelector alloc] initWithFrame:CGRectMake(190, 265, 40, 40)];
+		myLeftHalfBackTarget.backgroundColor = [UIColor clearColor];
+		myLeftHalfBackTarget.userInteractionEnabled = NO;
+		[self addSubview:myLeftHalfBackTarget];
+		[myLeftHalfBackTarget release];
+		
+		myRightHalfBackTarget = [[ZoneSelector alloc] initWithFrame:CGRectMake(250, 265, 40, 40)];
+		myRightHalfBackTarget.backgroundColor = [UIColor clearColor];
+		myRightHalfBackTarget.userInteractionEnabled = NO;
+		[self addSubview:myRightHalfBackTarget];
+		[myRightHalfBackTarget release];
+		
+		myTailBackTarget = [[ZoneSelector alloc] initWithFrame:CGRectMake(220, 280, 40, 40)];
+		myTailBackTarget.backgroundColor = [UIColor clearColor];
+		myTailBackTarget.userInteractionEnabled = NO;
+		[self addSubview:myTailBackTarget];
+		[myTailBackTarget release];
+		
+		// Players
+		
+		myLeftWideReceiver = [[PlayerView alloc] initWithFrame:CGRectMake(LEFT_WIDE_RECEIVER_X, LEFT_WIDE_RECEIVER_Y, 40, 40)];
+		myLeftWideReceiver.backgroundColor = [UIColor clearColor];
+		myLeftWideReceiver.userInteractionEnabled = NO;
+		[myLeftWideReceiver setPosition:LEFT_WIDE_RECEIVER];
+		[self addSubview:myLeftWideReceiver];
+		[myLeftWideReceiver release];
+		
+		myLeftSplitEnd = [[PlayerView alloc] initWithFrame:CGRectMake(LEFT_SPLIT_END_X, LEFT_SPLIT_END_Y, 40, 40)];
+		myLeftSplitEnd.backgroundColor = [UIColor clearColor];
+		myLeftSplitEnd.userInteractionEnabled = NO;
+		[myLeftSplitEnd setPosition:LEFT_SPLIT_END];
+		[self addSubview:myLeftSplitEnd];
+		[myLeftSplitEnd release];
+		
+		myLeftTightEnd = [[PlayerView alloc] initWithFrame:CGRectMake(LEFT_TIGHT_END_X, LEFT_TIGHT_END_Y, 40, 40)];
+		myLeftTightEnd.backgroundColor = [UIColor clearColor];
+		myLeftTightEnd.userInteractionEnabled = NO;
+		[myLeftTightEnd setPosition:LEFT_TIGHT_END];
+		[self addSubview:myLeftTightEnd];
+		[myLeftTightEnd release];
+		
+		myLeftTackle = [[PlayerView alloc] initWithFrame:CGRectMake(LEFT_TACKLE_X, LEFT_TACKLE_Y, 40, 40)];
+		myLeftTackle.backgroundColor = [UIColor clearColor];
+		myLeftTackle.userInteractionEnabled = NO;
+		[myLeftTackle setPosition:LEFT_TACKLE];
+		[self addSubview:myLeftTackle];
+		[myLeftTackle release];
+		
+		myLeftGaurd = [[PlayerView alloc] initWithFrame:CGRectMake(LEFT_GUARD_X, LEFT_GUARD_Y, 40, 40)];
+		myLeftGaurd.backgroundColor = [UIColor clearColor];
+		myLeftGaurd.userInteractionEnabled = NO;
+		[myLeftGaurd setPosition:LEFT_GAURD];
+		[self addSubview:myLeftGaurd];
+		[myLeftGaurd release];
+		
+		myCenter = [[PlayerView alloc] initWithFrame:CGRectMake(CENTER_X, CENTER_Y, 40, 40)];
+		myCenter.backgroundColor = [UIColor clearColor];
+		myCenter.userInteractionEnabled = NO;
+		[myCenter setPosition:CENTER];
+		[self addSubview:myCenter];
+		[myCenter release];
+		
+		myRightGaurd = [[PlayerView alloc] initWithFrame:CGRectMake(RIGHT_GUARD_X, RIGHT_GUARD_Y, 40, 40)];
+		myRightGaurd.backgroundColor = [UIColor clearColor];
+		myRightGaurd.userInteractionEnabled = NO;
+		[myRightGaurd setPosition:RIGHT_GAURD];
+		[self addSubview:myRightGaurd];
+		[myRightGaurd release];
+		
+		myRightTackle = [[PlayerView alloc] initWithFrame:CGRectMake(RIGHT_TACKLE_X, RIGHT_TACKLE_Y, 40, 40)];
+		myRightTackle.backgroundColor = [UIColor clearColor];
+		myRightTackle.userInteractionEnabled = NO;
+		[myRightTackle setPosition:RIGHT_TACKLE];
+		[self addSubview:myRightTackle];
+		[myRightTackle release];
+		
+		myRightTightEnd = [[PlayerView alloc] initWithFrame:CGRectMake(RIGHT_TIGHT_END_X, RIGHT_TIGHT_END_Y, 40, 40)];
+		myRightTightEnd.backgroundColor = [UIColor clearColor];
+		myRightTightEnd.userInteractionEnabled = NO;
+		[myRightTightEnd setPosition:RIGHT_TIGHT_END];
+		[self addSubview:myRightTightEnd];
+		[myRightTightEnd release];
+		
+		myRightSplitEnd = [[PlayerView alloc] initWithFrame:CGRectMake(RIGHT_SPLIT_END_X, RIGHT_SPLIT_END_Y, 40, 40)];
+		myRightSplitEnd.backgroundColor = [UIColor clearColor];
+		myRightSplitEnd.userInteractionEnabled = NO;
+		[myRightSplitEnd setPosition:RIGHT_SPLIT_END];
+		[self addSubview:myRightSplitEnd];
+		[myRightSplitEnd release];
+		
+		myRightWideReceiver = [[PlayerView alloc] initWithFrame:CGRectMake(RIGHT_WIDE_RECEIVER_X, RIGHT_WIDE_RECEIVER_Y, 40, 40)];
+		myRightWideReceiver.backgroundColor = [UIColor clearColor];
+		myRightWideReceiver.userInteractionEnabled = NO;
+		[myRightWideReceiver setPosition:RIGHT_WIDE_RECEIVER];
+		[self addSubview:myRightWideReceiver];
+		[myRightWideReceiver release];
+		
+		myQuarterBack = [[PlayerView alloc] initWithFrame:CGRectMake(QUARTER_BACK_X, QUARTER_BACK_Y, 40, 40)];
+		myQuarterBack.backgroundColor = [UIColor clearColor];
+		myQuarterBack.userInteractionEnabled = NO;
+		[myQuarterBack setPosition:QUARTER_BACK];
+		[self addSubview:myQuarterBack];
+		[myQuarterBack release];
+		
+		myFullBack = [[PlayerView alloc] initWithFrame:CGRectMake(FULL_BACK_X, FULL_BACK_Y, 40, 40)];
+		myFullBack.backgroundColor = [UIColor clearColor];
+		myFullBack.userInteractionEnabled = NO;
+		[myFullBack setPosition:FULL_BACK];
+		[self addSubview:myFullBack];
+		[myFullBack release];
+		
+		myLeftHalfBack = [[PlayerView alloc] initWithFrame:CGRectMake(190, 275, 40, 40)];
+		myLeftHalfBack.backgroundColor = [UIColor clearColor];
+		myLeftHalfBack.userInteractionEnabled = NO;
+		[myLeftHalfBack setPosition:LEFT_HALF_BACK];
+		[self addSubview:myLeftHalfBack];
+		[myLeftHalfBack release];
+		
+		myRightHalfBack = [[PlayerView alloc] initWithFrame:CGRectMake(250, 275, 40, 40)];
+		myRightHalfBack.backgroundColor = [UIColor clearColor];
+		myRightHalfBack.userInteractionEnabled = NO;
+		[myRightHalfBack setPosition:RIGHT_HALF_BACK];
+		[self addSubview:myRightHalfBack];
+		[myRightHalfBack release];
+		
+		myTailBack = [[PlayerView alloc] initWithFrame:CGRectMake(220, 290, 40, 40)];
+		myTailBack.backgroundColor = [UIColor clearColor];
+		myTailBack.userInteractionEnabled = NO;
+		[myTailBack setPosition:TAIL_BACK];
+		[self addSubview:myTailBack];
+		[myTailBack release];
+		
+		// Offensive Location Selectors
+		
+		myLeftWideReceiverLocation = [[LocationSelectorView alloc] initWithFrame:CGRectMake(0, 210, 40, 40)];
+		myLeftWideReceiverLocation.backgroundColor = [UIColor clearColor];
+		myLeftWideReceiverLocation.userInteractionEnabled = YES;
+		myLeftWideReceiverLocation.position = LEFT_WIDE_RECEIVER;
+		[self addSubview:myLeftWideReceiverLocation];
+		[myLeftWideReceiverLocation release];
+		
+		myLeftSplitEndLocation = [[LocationSelectorView alloc] initWithFrame:CGRectMake(50, 220, 40, 40)];
+		myLeftSplitEndLocation.backgroundColor = [UIColor clearColor];
+		myLeftSplitEndLocation.userInteractionEnabled = YES;
+		myLeftSplitEndLocation.position = LEFT_SPLIT_END;
+		[self addSubview:myLeftSplitEndLocation];
+		[myLeftSplitEndLocation release];
+		
+		myLeftTightEndLocation = [[LocationSelectorView alloc] initWithFrame:CGRectMake(100, 210, 40, 40)];
+		myLeftTightEndLocation.backgroundColor = [UIColor clearColor];
+		myLeftTightEndLocation.userInteractionEnabled = YES;
+		myLeftTightEndLocation.position = LEFT_TIGHT_END;
+		[self addSubview:myLeftTightEndLocation];
+		[myLeftTightEndLocation release];
+		
+		myRightTightEndLocation = [[LocationSelectorView alloc] initWithFrame:CGRectMake(340, 210, 40, 40)];
+		myRightTightEndLocation.backgroundColor = [UIColor clearColor];
+		myRightTightEndLocation.userInteractionEnabled = YES;
+		myRightTightEndLocation.position = RIGHT_TIGHT_END;
+		[self addSubview:myRightTightEndLocation];
+		[myRightTightEndLocation release];
+		
+		myRightSplitEndLocation = [[LocationSelectorView alloc] initWithFrame:CGRectMake(390, 220, 40, 40)];
+		myRightSplitEndLocation.backgroundColor = [UIColor clearColor];
+		myRightSplitEndLocation.userInteractionEnabled = YES;
+		myRightSplitEndLocation.position = RIGHT_SPLIT_END;
+		[self addSubview:myRightSplitEndLocation];
+		[myRightSplitEndLocation release];
+		
+		myRightWideReceiverLocation = [[LocationSelectorView alloc] initWithFrame:CGRectMake(440, 210, 40, 40)];
+		myRightWideReceiverLocation.backgroundColor = [UIColor clearColor];
+		myRightWideReceiverLocation.userInteractionEnabled = YES;
+		myRightWideReceiverLocation.position = RIGHT_WIDE_RECEIVER;
+		[self addSubview:myRightWideReceiverLocation];
+		[myRightWideReceiverLocation release];
+		
+		myQuarterBackLocation = [[LocationSelectorView alloc] initWithFrame:CGRectMake(220, 230, 40, 40)];
+		myQuarterBackLocation.backgroundColor = [UIColor clearColor];
+		myQuarterBackLocation.userInteractionEnabled = YES;
+		myQuarterBackLocation.position = QUARTER_BACK;
+		[self addSubview:myQuarterBackLocation];
+		[myQuarterBackLocation release];
+		
+		myFullBackLocation = [[LocationSelectorView alloc] initWithFrame:CGRectMake(220, 260, 40, 40)];
+		myFullBackLocation.backgroundColor = [UIColor clearColor];
+		myFullBackLocation.userInteractionEnabled = YES;
+		myFullBackLocation.position = FULL_BACK;
+		[self addSubview:myFullBackLocation];
+		[myFullBackLocation release];
+		
+		myLeftHalfBackLocation = [[LocationSelectorView alloc] initWithFrame:CGRectMake(190, 275, 40, 40)];
+		myLeftHalfBackLocation.backgroundColor = [UIColor clearColor];
+		myLeftHalfBackLocation.userInteractionEnabled = YES;
+		myLeftHalfBackLocation.position = LEFT_HALF_BACK;
+		[self addSubview:myLeftHalfBackLocation];
+		[myLeftHalfBackLocation release];
+		
+		myRightHalfBackLocation = [[LocationSelectorView alloc] initWithFrame:CGRectMake(250, 275, 40, 40)];
+		myRightHalfBackLocation.backgroundColor = [UIColor clearColor];
+		myRightHalfBackLocation.userInteractionEnabled = YES;
+		myRightHalfBackLocation.position = RIGHT_HALF_BACK;
+		[self addSubview:myRightHalfBackLocation];
+		[myRightHalfBackLocation release];
+		
+		myTailBackLocation = [[LocationSelectorView alloc] initWithFrame:CGRectMake(220, 290, 40, 40)];
+		myTailBackLocation.backgroundColor = [UIColor clearColor];
+		myTailBackLocation.userInteractionEnabled = YES;
+		myTailBackLocation.position = TAIL_BACK;
+		[self addSubview:myTailBackLocation];
+		[myTailBackLocation release];
+    }
+	
+    return self;
+}
+
+- (void)drawRect:(CGRect)rect {
+	[self resetEachPlayersCurrentTeam];
+	[self movePlayersIntoCurrentFormation];
+	[self resetSelectorsAndTargets];
+}
+
+- (void)resetEachPlayersCurrentTeam
+{
+	int team = 0;
+	
+	if ([GameManager getPossession] == 0)
+		team = HOME_TEAM;
+	else
+		team = AWAY_TEAM;
+	
+	myLeftWideReceiver.team = team;
+	myLeftSplitEnd.team = team;
+	myLeftTightEnd.team = team;
+	myLeftTackle.team = team;
+	myLeftGaurd.team = team;
+	myCenter.team = team;
+	myRightGaurd.team = team;
+	myRightTackle.team = team;
+	myRightTightEnd.team = team;
+	myRightSplitEnd.team = team;
+	myRightWideReceiver.team = team;
+	myQuarterBack.team = team;
+	myFullBack.team = team;
+	myLeftHalfBack.team = team;
+	myRightHalfBack.team = team;
+	myTailBack.team = team;
+}
+
+- (void)movePlayersIntoCurrentFormation
+{
+	// Set up the formation based on the game state
+	CGRect frame;
+	
+	// Ensures that for special teams formations the appropriate
+	// positions are displayed
+	myLeftWideReceiver.hidden = FALSE;
+	myLeftSplitEnd.hidden = TRUE;
+	myLeftTightEnd.hidden = TRUE;
+	myLeftTackle.hidden = FALSE;
+	myLeftGaurd.hidden = FALSE;
+	myCenter.hidden = FALSE;
+	myRightGaurd.hidden = FALSE;
+	myRightTackle.hidden = FALSE;
+	myRightTightEnd.hidden = FALSE;
+	myRightSplitEnd.hidden = TRUE;
+	myRightWideReceiver.hidden = FALSE;
+	myQuarterBack.hidden = FALSE;
+	myFullBack.hidden = FALSE;
+	myLeftHalfBack.hidden = TRUE;
+	myRightHalfBack.hidden = TRUE;
+	myTailBack.hidden = FALSE;
+	
+	if ([GameManager getGameState] == GAME_MENU_STATE)
+	{
+		frame = [myLeftWideReceiver frame];
+		frame.origin.x = 150.0;
+		frame.origin.y = 270.0;
+		[myLeftWideReceiver setFrame:frame];
+		
+		frame = [myLeftTackle frame];
+		frame.origin.x = 170.0;
+		frame.origin.y = 250.0;
+		[myLeftTackle setFrame:frame];
+		
+		frame = [myLeftGaurd frame];
+		frame.origin.x = 190.0;
+		frame.origin.y = 230.0;
+		[myLeftGaurd setFrame:frame];
+		
+		frame = [myCenter frame];
+		frame.origin.x = 170.0;
+		frame.origin.y = 290.0;
+		[myCenter setFrame:frame];
+		
+		frame = [myRightGaurd frame];
+		frame.origin.x = 250.0;
+		frame.origin.y = 230.0;
+		[myRightGaurd setFrame:frame];
+		
+		frame = [myRightTackle frame];
+		frame.origin.x = 270.0;
+		frame.origin.y = 250.0;
+		[myRightTackle setFrame:frame];
+		
+		frame = [myRightTightEnd frame];
+		frame.origin.x = 290.0;
+		frame.origin.y = 270.0;
+		[myRightTightEnd setFrame:frame];
+		
+		frame = [myRightWideReceiver frame];
+		frame.origin.x = 270.0;
+		frame.origin.y = 290.0;
+		[myRightWideReceiver setFrame:frame];
+		
+		frame = [myQuarterBack frame];
+		frame.origin.x = 220.0;
+		frame.origin.y = 230.0;
+		[myQuarterBack setFrame:frame];
+		
+		frame = [myFullBack frame];
+		frame.origin.x = 240.0;
+		frame.origin.y = 290.0;
+		[myFullBack setFrame:frame];
+		
+		frame = [myTailBack frame];
+		frame.origin.x = 200.0;
+		frame.origin.y = 290.0;
+		[myTailBack setFrame:frame];
+	}
+	else if	([GameManager getGameState] == WAITING_TO_HIKE_BALL &&
+			 (([GameManager getAttackZoneSelected] == NORMAL_KICK_OFF) ||
+			  ([GameManager getAttackZoneSelected] == SQUIB_KICK_OFF)))
+	{
+		frame = [myLeftWideReceiver frame];
+		frame.origin.x = 8.0;
+		frame.origin.y = 220.0;
+		[myLeftWideReceiver setFrame:frame];
+		
+		frame = [myLeftTackle frame];
+		frame.origin.x = 46.0;
+		frame.origin.y = 220.0;
+		[myLeftTackle setFrame:frame];
+		
+		frame = [myLeftGaurd frame];
+		frame.origin.x = 84.0;
+		frame.origin.y = 220.0;
+		[myLeftGaurd setFrame:frame];
+		
+		frame = [myCenter frame];
+		frame.origin.x = 122.0;
+		frame.origin.y = 220.0;
+		[myCenter setFrame:frame];
+		
+		frame = [myRightGaurd frame];
+		frame.origin.x = 160.0;
+		frame.origin.y = 220.0;
+		[myRightGaurd setFrame:frame];
+		
+		frame = [myRightTackle frame];
+		frame.origin.x = 280.0;
+		frame.origin.y = 220.0;
+		[myRightTackle setFrame:frame];
+		
+		frame = [myRightTightEnd frame];
+		frame.origin.x = 318.0;
+		frame.origin.y = 220.0;
+		[myRightTightEnd setFrame:frame];
+		
+		frame = [myRightWideReceiver frame];
+		frame.origin.x = 356.0;
+		frame.origin.y = 220.0;
+		[myRightWideReceiver setFrame:frame];
+		
+		frame = [myQuarterBack frame];
+		frame.origin.x = 394.0;
+		frame.origin.y = 220.0;
+		[myQuarterBack setFrame:frame];
+		
+		frame = [myFullBack frame];
+		frame.origin.x = 432.0;
+		frame.origin.y = 220.0;
+		[myFullBack setFrame:frame];
+		
+		// Kicker
+		frame = [myTailBack frame];
+		frame.origin.x = 200.0;
+		frame.origin.y = 270.0;
+		[myTailBack setFrame:frame];
+	}
+	else if	([GameManager getGameState] == WAITING_TO_HIKE_BALL &&
+			 [GameManager getAttackZoneSelected] == ONSIDE_KICK_OFF)
+	{
+		frame = [myLeftWideReceiver frame];
+		frame.origin.x = 240.0;
+		frame.origin.y = 220.0;
+		[myLeftWideReceiver setFrame:frame];
+		
+		frame = [myLeftTackle frame];
+		frame.origin.x = 265.0;
+		frame.origin.y = 220.0;
+		[myLeftTackle setFrame:frame];
+		
+		frame = [myLeftGaurd frame];
+		frame.origin.x = 290.0;
+		frame.origin.y = 220.0;
+		[myLeftGaurd setFrame:frame];
+		
+		frame = [myCenter frame];
+		frame.origin.x = 315.0;
+		frame.origin.y = 220.0;
+		[myCenter setFrame:frame];
+		
+		frame = [myRightGaurd frame];
+		frame.origin.x = 340.0;
+		frame.origin.y = 220.0;
+		[myRightGaurd setFrame:frame];
+		
+		frame = [myRightTackle frame];
+		frame.origin.x = 365.0;
+		frame.origin.y = 220.0;
+		[myRightTackle setFrame:frame];
+		
+		frame = [myRightTightEnd frame];
+		frame.origin.x = 390.0;
+		frame.origin.y = 220.0;
+		[myRightTightEnd setFrame:frame];
+		
+		frame = [myRightWideReceiver frame];
+		frame.origin.x = 415.0;
+		frame.origin.y = 220.0;
+		[myRightWideReceiver setFrame:frame];
+		
+		frame = [myQuarterBack frame];
+		frame.origin.x = 440.0;
+		frame.origin.y = 220.0;
+		[myQuarterBack setFrame:frame];
+		
+		frame = [myFullBack frame];
+		frame.origin.x = 160.0;
+		frame.origin.y = 220.0;
+		[myFullBack setFrame:frame];
+		
+		// Kicker
+		frame = [myTailBack frame];
+		frame.origin.x = 200.0;
+		frame.origin.y = 270.0;
+		[myTailBack setFrame:frame];
+	}
+	else if ([GameManager getGameState] == WAITING_TO_HIKE_BALL &&
+			 ([GameManager getAttackZoneSelected] == NORMAL_FIELD_GOAL ||
+			  [GameManager getAttackZoneSelected] == EXTRA_POINT))
+	{
+		frame = [myLeftWideReceiver frame];
+		frame.origin.x = 100.0;
+		frame.origin.y = 210.0;
+		[myLeftWideReceiver setFrame:frame];
+		
+		frame = [myLeftTackle frame];
+		frame.origin.x = 140.0;
+		frame.origin.y = 210.0;
+		[myLeftTackle setFrame:frame];
+		
+		frame = [myLeftGaurd frame];
+		frame.origin.x = 180.0;
+		frame.origin.y = 210.0;
+		[myLeftGaurd setFrame:frame];
+		
+		frame = [myCenter frame];
+		frame.origin.x = 220.0;
+		frame.origin.y = 210.0;
+		[myCenter setFrame:frame];
+		
+		frame = [myRightGaurd frame];
+		frame.origin.x = 260.0;
+		frame.origin.y = 210.0;
+		[myRightGaurd setFrame:frame];
+		
+		frame = [myRightTackle frame];
+		frame.origin.x = 300.0;
+		frame.origin.y = 210.0;
+		[myRightTackle setFrame:frame];
+		
+		frame = [myRightTightEnd frame];
+		frame.origin.x = 340.0;
+		frame.origin.y = 210.0;
+		[myRightTightEnd setFrame:frame];
+		
+		// Right Wing Guy
+		frame = [myRightWideReceiver frame];
+		frame.origin.x = 370.0;
+		frame.origin.y = 220.0;
+		[myRightWideReceiver setFrame:frame];
+		
+		// Left Wing Guy
+		frame = [myQuarterBack frame];
+		frame.origin.x = 70.0;
+		frame.origin.y = 220.0;
+		[myQuarterBack setFrame:frame];
+		
+		// Holder
+		frame = [myFullBack frame];
+		frame.origin.x = 240.0;
+		frame.origin.y = 260.0;
+		[myFullBack setFrame:frame];
+		
+		// Kicker
+		frame = [myTailBack frame];
+		frame.origin.x = 200.0;
+		frame.origin.y = 290.0;
+		[myTailBack setFrame:frame];
+	}
+	else if ([GameManager getGameState] == WAITING_TO_HIKE_BALL &&
+			 [GameManager getAttackZoneSelected] == NORMAL_PUNT)
+	{
+		frame = [myLeftWideReceiver frame];
+		frame.origin.x = 100.0;
+		frame.origin.y = 220.0;
+		[myLeftWideReceiver setFrame:frame];
+		
+		frame = [myLeftTackle frame];
+		frame.origin.x = 140.0;
+		frame.origin.y = 210.0;
+		[myLeftTackle setFrame:frame];
+		
+		frame = [myLeftGaurd frame];
+		frame.origin.x = 180.0;
+		frame.origin.y = 210.0;
+		[myLeftGaurd setFrame:frame];
+		
+		frame = [myCenter frame];
+		frame.origin.x = 220.0;
+		frame.origin.y = 210.0;
+		[myCenter setFrame:frame];
+		
+		frame = [myRightGaurd frame];
+		frame.origin.x = 260.0;
+		frame.origin.y = 210.0;
+		[myRightGaurd setFrame:frame];
+		
+		frame = [myRightTackle frame];
+		frame.origin.x = 300.0;
+		frame.origin.y = 210.0;
+		[myRightTackle setFrame:frame];
+		
+		frame = [myRightTightEnd frame];
+		frame.origin.x = 340.0;
+		frame.origin.y = 220.0;
+		[myRightTightEnd setFrame:frame];
+		
+		// Right Wing Guy
+		frame = [myRightWideReceiver frame];
+		frame.origin.x = 432.0;
+		frame.origin.y = 210.0;
+		[myRightWideReceiver setFrame:frame];
+		
+		// Left Wing Guy
+		frame = [myQuarterBack frame];
+		frame.origin.x = 8.0;
+		frame.origin.y = 210.0;
+		[myQuarterBack setFrame:frame];
+		
+		// Holder
+		frame = [myFullBack frame];
+		frame.origin.x = 200.0;
+		frame.origin.y = 250.0;
+		[myFullBack setFrame:frame];
+		
+		// Punter
+		frame = [myTailBack frame];
+		frame.origin.x = 220.0;
+		frame.origin.y = 290.0;
+		[myTailBack setFrame:frame];
+	}
+	else // Normal Offensive Formation
+	{
+		// Reset all players normal locations
+		frame = [myLeftWideReceiver frame];
+		frame.origin.x = 0.0;
+		frame.origin.y = 210.0;
+		[myLeftWideReceiver setFrame:frame];
+		
+		frame = [myLeftSplitEnd frame];
+		frame.origin.x = 50.0;
+		frame.origin.y = 220.0;
+		[myLeftSplitEnd setFrame:frame];
+		
+		frame = [myLeftTightEnd frame];
+		frame.origin.x = 100.0;
+		frame.origin.y = 210.0;
+		[myLeftTightEnd setFrame:frame];
+		
+		frame = [myLeftTackle frame];
+		frame.origin.x = 140.0;
+		frame.origin.y = 210.0;
+		[myLeftTackle setFrame:frame];
+		
+		frame = [myLeftGaurd frame];
+		frame.origin.x = 180.0;
+		frame.origin.y = 210.0;
+		[myLeftGaurd setFrame:frame];
+		
+		frame = [myCenter frame];
+		frame.origin.x = 220.0;
+		frame.origin.y = 210.0;
+		[myCenter setFrame:frame];
+		
+		frame = [myRightGaurd frame];
+		frame.origin.x = 260.0;
+		frame.origin.y = 210.0;
+		[myRightGaurd setFrame:frame];
+		
+		frame = [myRightTackle frame];
+		frame.origin.x = 300.0;
+		frame.origin.y = 210.0;
+		[myRightTackle setFrame:frame];
+		
+		frame = [myRightTightEnd frame];
+		frame.origin.x = 340.0;
+		frame.origin.y = 210.0;
+		[myRightTightEnd setFrame:frame];
+		
+		frame = [myRightSplitEnd frame];
+		frame.origin.x = 390.0;
+		frame.origin.y = 220.0;
+		[myRightSplitEnd setFrame:frame];
+		
+		frame = [myRightWideReceiver frame];
+		frame.origin.x = 440.0;
+		frame.origin.y = 210.0;
+		[myRightWideReceiver setFrame:frame];
+		
+		frame = [myQuarterBack frame];
+		frame.origin.x = 220.0;
+		frame.origin.y = 230.0;
+		[myQuarterBack setFrame:frame];
+		
+		frame = [myFullBack frame];
+		frame.origin.x = 220.0;
+		frame.origin.y = 260.0;
+		[myFullBack setFrame:frame];
+		
+		frame = [myLeftHalfBack frame];
+		frame.origin.x = 190.0;
+		frame.origin.y = 275.0;
+		[myLeftHalfBack setFrame:frame];
+		
+		frame = [myRightHalfBack frame];
+		frame.origin.x = 250.0;
+		frame.origin.y = 275.0;
+		[myRightHalfBack setFrame:frame];
+		
+		frame = [myTailBack frame];
+		frame.origin.x = 220.0;
+		frame.origin.y = 290.0;
+		[myTailBack setFrame:frame];
+		
+		// Show all players currently "in the game"
+		if ([GameManager getLeftWideReceiver] == 1)
+		{
+			myLeftWideReceiver.hidden = FALSE;
+		}
+		else
+		{
+			myLeftWideReceiver.hidden = TRUE;
+		}
+		
+		if ([GameManager getLeftSplitEnd] == 1)
+		{
+			myLeftSplitEnd.hidden = FALSE;
+		}
+		else
+		{
+			myLeftSplitEnd.hidden = TRUE;
+		}
+		
+		if ([GameManager getLeftTightEnd] == 1)
+		{
+			myLeftTightEnd.hidden = FALSE;
+		}
+		else
+		{
+			myLeftTightEnd.hidden = TRUE;
+		}
+		
+		if ([GameManager getRightTightEnd] == 1)
+		{
+			myRightTightEnd.hidden = FALSE;
+		}
+		else
+		{
+			myRightTightEnd.hidden = TRUE;
+		}
+		
+		if ([GameManager getRightSplitEnd] == 1)
+		{
+			myRightSplitEnd.hidden = FALSE;
+		}
+		else
+		{
+			myRightSplitEnd.hidden = TRUE;
+		}
+		
+		if ([GameManager getRightWideReceiver] == 1)
+		{
+			myRightWideReceiver.hidden = FALSE;
+		}
+		else
+		{
+			myRightWideReceiver.hidden = TRUE;
+		}
+		
+		if ([GameManager getFullBack] == 1)
+		{
+			myFullBack.hidden = FALSE;
+		}
+		else
+		{
+			myFullBack.hidden = TRUE;
+		}
+		
+		if ([GameManager getLeftHalfBack] == 1)
+		{
+			myLeftHalfBack.hidden = FALSE;
+		}
+		else
+		{
+			myLeftHalfBack.hidden = TRUE;
+		}
+		
+		if ([GameManager getRightHalfBack] == 1)
+		{
+			myRightHalfBack.hidden = FALSE;
+		}
+		else
+		{
+			myRightHalfBack.hidden = TRUE;
+		}
+		
+		if ([GameManager getTailBack] == 1)
+		{
+			myTailBack.hidden = FALSE;
+		}
+		else
+		{
+			myTailBack.hidden = TRUE;
+		}
+	}
+	
+	[myLeftWideReceiver setNeedsDisplay];
+	[myLeftSplitEnd setNeedsDisplay];
+	[myLeftTightEnd setNeedsDisplay];
+	[myLeftTackle setNeedsDisplay];
+	[myLeftGaurd setNeedsDisplay];
+	[myCenter setNeedsDisplay];
+	[myRightGaurd setNeedsDisplay];
+	[myRightTackle setNeedsDisplay];
+	[myRightTightEnd setNeedsDisplay];
+	[myRightSplitEnd setNeedsDisplay];
+	[myRightWideReceiver setNeedsDisplay];
+	[myQuarterBack setNeedsDisplay];
+	[myFullBack setNeedsDisplay];
+	[myLeftHalfBack setNeedsDisplay];
+	[myRightHalfBack setNeedsDisplay];
+	[myTailBack setNeedsDisplay];
+}
+
+- (void)resetSelectorsAndTargets
+{
+	myLeftWideReceiver.userInteractionEnabled = YES;
+	myLeftSplitEnd.userInteractionEnabled = YES;
+	myLeftTightEnd.userInteractionEnabled = YES;
+	myRightTightEnd.userInteractionEnabled = YES;
+	myRightSplitEnd.userInteractionEnabled = YES;
+	myRightWideReceiver.userInteractionEnabled = YES;
+	myQuarterBack.userInteractionEnabled = YES;
+	myFullBack.userInteractionEnabled = YES;
+	myLeftHalfBack.userInteractionEnabled = YES;
+	myRightHalfBack.userInteractionEnabled = YES;
+	myTailBack.userInteractionEnabled = YES;
+	
+	myLeftWideReceiverTarget.hidden = TRUE;
+	myLeftSplitEndTarget.hidden = TRUE;
+	myLeftTightEndTarget.hidden = TRUE;
+	myRightTightEndTarget.hidden = TRUE;
+	myRightSplitEndTarget.hidden = TRUE;
+	myRightWideReceiverTarget.hidden = TRUE;
+	myQuarterBackTarget.hidden = TRUE;
+	myFullBackTarget.hidden = TRUE;
+	myLeftHalfBackTarget.hidden = TRUE;
+	myRightHalfBackTarget.hidden = TRUE;
+	myTailBackTarget.hidden = TRUE;
+	
+	// Show all locations of players not currently "in the game"
+	if ([GameManager getGameState] == WAITING_TO_PICK_ATTACK_ZONE && [GameManager getOffensivePositionSelected] != QUARTER_BACK)
+	{
+		if ([GameManager getLeftWideReceiver] == 1)
+		{
+			myLeftWideReceiverLocation.hidden = TRUE;
+		}
+		else
+		{
+			myLeftWideReceiverLocation.hidden = FALSE;
+		}
+		
+		if ([GameManager getLeftSplitEnd] == 1)
+		{
+			myLeftSplitEndLocation.hidden = TRUE;
+		}
+		else
+		{
+			myLeftSplitEndLocation.hidden = FALSE;
+		}
+		
+		if ([GameManager getLeftTightEnd] == 1)
+		{
+			myLeftTightEndLocation.hidden = TRUE;
+		}
+		else
+		{
+			myLeftTightEndLocation.hidden = FALSE;
+		}
+		
+		if ([GameManager getRightTightEnd] == 1)
+		{
+			myRightTightEndLocation.hidden = TRUE;
+		}
+		else
+		{
+			myRightTightEndLocation.hidden = FALSE;
+		}
+		
+		if ([GameManager getRightSplitEnd] == 1)
+		{
+			myRightSplitEndLocation.hidden = TRUE;
+		}
+		else
+		{
+			myRightSplitEndLocation.hidden = FALSE;
+		}
+		
+		if ([GameManager getRightWideReceiver] == 1)
+		{
+			myRightWideReceiverLocation.hidden = TRUE;
+		}
+		else
+		{
+			myRightWideReceiverLocation.hidden = FALSE;
+		}
+		
+		if ([GameManager getFullBack] == 1)
+		{
+			myFullBackLocation.hidden = TRUE;
+		}
+		else
+		{
+			myFullBackLocation.hidden = FALSE;
+		}
+		
+		if ([GameManager getLeftHalfBack] == 1)
+		{
+			myLeftHalfBackLocation.hidden = TRUE;
+		}
+		else
+		{
+			myLeftHalfBackLocation.hidden = FALSE;
+		}
+		
+		if ([GameManager getRightHalfBack] == 1)
+		{
+			myRightHalfBackLocation.hidden = TRUE;
+		}
+		else
+		{
+			myRightHalfBackLocation.hidden = FALSE;
+		}
+		
+		if ([GameManager getTailBack] == 1)
+		{
+			myTailBackLocation.hidden = TRUE;
+		}
+		else
+		{
+			myTailBackLocation.hidden = FALSE;
+		}
+	}
+	else
+	{
+		myLeftWideReceiverLocation.hidden = TRUE;
+		myLeftSplitEndLocation.hidden = TRUE;
+		myLeftTightEndLocation.hidden = TRUE;
+		myRightTightEndLocation.hidden = TRUE;
+		myRightSplitEndLocation.hidden = TRUE;
+		myRightWideReceiverLocation.hidden = TRUE;
+		myQuarterBackLocation.hidden = TRUE;
+		myFullBackLocation.hidden = TRUE;
+		myLeftHalfBackLocation.hidden = TRUE;
+		myRightHalfBackLocation.hidden = TRUE;
+		myTailBackLocation.hidden = TRUE;
+	}
+	
+	if ([GameManager getGameState] == WAITING_TO_PICK_OFFENSIVE_PLAYER || [GameManager getGameState] == WAITING_TO_PICK_ATTACK_ZONE)
+	{		
+		int offensivePositionSelected = [GameManager getOffensivePositionSelected];
+		
+		switch (offensivePositionSelected)
+		{
+			case NO_POSITION_SELECTED:
+			{
+				// myLeftWideReceiverSelector.hidden = FALSE;
+				// myLeftSplitEndSelector.hidden = FALSE;
+				// myLeftTightEndSelector.hidden = FALSE;
+				// myRightTightEndSelector.hidden = FALSE;
+				// myRightSplitEndSelector.hidden = FALSE;
+				// myRightWideReceiverSelector.hidden = FALSE;
+				// myQuarterBackSelector.hidden = FALSE;
+				// myFullBackSelector.hidden = FALSE;
+				// myLeftHalfBackSelector.hidden = FALSE;
+				// myRightHalfBackSelector.hidden = FALSE;
+				// myTailBackSelector.hidden = FALSE;
+				
+				myLeftWideReceiverTarget.hidden = TRUE;
+				myLeftSplitEndTarget.hidden = TRUE;
+				myLeftTightEndTarget.hidden = TRUE;
+				myRightTightEndTarget.hidden = TRUE;
+				myRightSplitEndTarget.hidden = TRUE;
+				myRightWideReceiverTarget.hidden = TRUE;
+				myQuarterBackTarget.hidden = TRUE;
+				myFullBackTarget.hidden = TRUE;
+				myLeftHalfBackTarget.hidden = TRUE;
+				myRightHalfBackTarget.hidden = TRUE;
+				myTailBackTarget.hidden = TRUE;
+				
+				break;
+			}
+			case LEFT_WIDE_RECEIVER:
+			{
+				myLeftWideReceiverTarget.hidden = FALSE;
+				break;
+			}
+			case LEFT_SPLIT_END:
+			{
+				myLeftSplitEndTarget.hidden = FALSE;
+				break;
+			}
+			case LEFT_TIGHT_END:
+			{
+				myLeftTightEndTarget.hidden = FALSE;
+				break;
+			}
+			case RIGHT_TIGHT_END:
+			{
+				myRightTightEndTarget.hidden = FALSE;
+				break;
+			}
+			case RIGHT_SPLIT_END:
+			{
+				myRightSplitEndTarget.hidden = FALSE;
+				break;
+			}
+			case RIGHT_WIDE_RECEIVER:
+			{
+				myRightWideReceiverTarget.hidden = FALSE;
+				break;
+			}
+			case QUARTER_BACK:
+			{
+				myQuarterBackTarget.hidden = FALSE;
+				break;
+			}
+			case FULL_BACK:
+			{
+				myFullBackTarget.hidden = FALSE;
+				break;
+			}
+			case LEFT_HALF_BACK:
+			{
+				myLeftHalfBackTarget.hidden = FALSE;
+				break;
+			}
+			case RIGHT_HALF_BACK:
+			{
+				myRightHalfBackTarget.hidden = FALSE;
+				break;
+			}
+			case TAIL_BACK:
+			{
+				myTailBackTarget.hidden = FALSE;
+				break;
+			}
+		}
+	}
+	else if ([GameManager getGameState] == WAITING_TO_HIKE_BALL)
+	{
+		myLeftWideReceiver.userInteractionEnabled = NO;
+		myLeftSplitEnd.userInteractionEnabled = NO;
+		myLeftTightEnd.userInteractionEnabled = NO;
+		myRightTightEnd.userInteractionEnabled = NO;
+		myRightSplitEnd.userInteractionEnabled = NO;
+		myRightWideReceiver.userInteractionEnabled = NO;
+		myQuarterBack.userInteractionEnabled = NO;
+		myFullBack.userInteractionEnabled = NO;
+		myLeftHalfBack.userInteractionEnabled = NO;
+		myRightHalfBack.userInteractionEnabled = NO;
+		myTailBack.userInteractionEnabled = NO;
+		
+		int offensivePositionSelected = [GameManager getOffensivePositionSelected];
+		
+		switch (offensivePositionSelected)
+		{
+			case LEFT_WIDE_RECEIVER:
+			{
+				myLeftWideReceiverTarget.hidden = FALSE;
+				break;
+			}
+			case LEFT_SPLIT_END:
+			{
+				myLeftSplitEndTarget.hidden = FALSE;
+				break;
+			}
+			case LEFT_TIGHT_END:
+			{
+				myLeftTightEndTarget.hidden = FALSE;
+				break;
+			}
+			case RIGHT_TIGHT_END:
+			{
+				myRightTightEndTarget.hidden = FALSE;
+				break;
+			}
+			case RIGHT_SPLIT_END:
+			{
+				myRightSplitEndTarget.hidden = FALSE;
+				break;
+			}
+			case RIGHT_WIDE_RECEIVER:
+			{
+				myRightWideReceiverTarget.hidden = FALSE;
+				break;
+			}
+			case QUARTER_BACK:
+			{
+				myQuarterBackTarget.hidden = FALSE;
+				break;
+			}
+			case FULL_BACK:
+			{
+				myFullBackTarget.hidden = FALSE;
+				break;
+			}
+			case LEFT_HALF_BACK:
+			{
+				myLeftHalfBackTarget.hidden = FALSE;
+				break;
+			}
+			case RIGHT_HALF_BACK:
+			{
+				myRightHalfBackTarget.hidden = FALSE;
+				break;
+			}
+			case TAIL_BACK:
+			{
+				myTailBackTarget.hidden = FALSE;
+				break;
+			}
+		}
+	}
+	else
+	{
+		myLeftWideReceiver.userInteractionEnabled = NO;
+		myLeftSplitEnd.userInteractionEnabled = NO;
+		myLeftTightEnd.userInteractionEnabled = NO;
+		myRightTightEnd.userInteractionEnabled = NO;
+		myRightSplitEnd.userInteractionEnabled = NO;
+		myRightWideReceiver.userInteractionEnabled = NO;
+		myQuarterBack.userInteractionEnabled = NO;
+		myFullBack.userInteractionEnabled = NO;
+		myLeftHalfBack.userInteractionEnabled = NO;
+		myRightHalfBack.userInteractionEnabled = NO;
+		myTailBack.userInteractionEnabled = NO;
+	}
+}
+
+- (void)playerTapped:(int)playerView
+{
+	[self.nextResponder playerTapped:playerView];
+}
+
+- (void)locationTapped:(int)locationSelected
+{
+	int offensivePositionSelected = [GameManager getOffensivePositionSelected];
+	
+	if (offensivePositionSelected == LEFT_WIDE_RECEIVER)
+	{
+		[GameManager setLeftWideReceiver:0];
+	}
+	else if (offensivePositionSelected == LEFT_SPLIT_END)
+	{
+		[GameManager setLeftSplitEnd:0];
+	}
+	else if (offensivePositionSelected == LEFT_TIGHT_END)
+	{
+		[GameManager setLeftTightEnd:0];
+	}
+	else if (offensivePositionSelected == RIGHT_TIGHT_END)
+	{
+		[GameManager setRightTightEnd:0];
+	}
+	else if (offensivePositionSelected == RIGHT_SPLIT_END)
+	{
+		[GameManager setRightSplitEnd:0];
+	}
+	else if (offensivePositionSelected == RIGHT_WIDE_RECEIVER)
+	{
+		[GameManager setRightWideReceiver:0];
+	}
+	else if (offensivePositionSelected == QUARTER_BACK)
+	{
+		[GameManager setQuarterBack:0];
+	}
+	else if (offensivePositionSelected == FULL_BACK)
+	{
+		[GameManager setFullBack:0];
+	}
+	else if (offensivePositionSelected == LEFT_HALF_BACK)
+	{
+		[GameManager setLeftHalfBack:0];
+	}
+	else if (offensivePositionSelected == RIGHT_HALF_BACK)
+	{
+		[GameManager setRightHalfBack:0];
+	}
+	else if (offensivePositionSelected == TAIL_BACK)
+	{
+		[GameManager setTailBack:0];
+	}
+	
+	if (locationSelected == LEFT_WIDE_RECEIVER)
+	{
+		[GameManager setLeftWideReceiver:1];
+	}
+	else if (locationSelected == LEFT_SPLIT_END)
+	{
+		[GameManager setLeftSplitEnd:1];
+	}
+	else if (locationSelected == LEFT_TIGHT_END)
+	{
+		[GameManager setLeftTightEnd:1];
+	}
+	else if (locationSelected == RIGHT_TIGHT_END)
+	{
+		[GameManager setRightTightEnd:1];
+	}
+	else if (locationSelected == RIGHT_SPLIT_END)
+	{
+		[GameManager setRightSplitEnd:1];
+	}
+	else if (locationSelected == RIGHT_WIDE_RECEIVER)
+	{
+		[GameManager setRightWideReceiver:1];
+	}
+	else if (locationSelected == QUARTER_BACK)
+	{
+		[GameManager setQuarterBack:1];
+	}
+	else if (locationSelected == FULL_BACK)
+	{
+		[GameManager setFullBack:1];
+	}
+	else if (locationSelected == LEFT_HALF_BACK)
+	{
+		[GameManager setLeftHalfBack:1];
+	}
+	else if (locationSelected == RIGHT_HALF_BACK)
+	{
+		[GameManager setRightHalfBack:1];
+	}
+	else if (locationSelected == TAIL_BACK)
+	{
+		[GameManager setTailBack:1];
+	}
+	
+	[GameManager setGameState:WAITING_TO_PICK_OFFENSIVE_PLAYER];
+	[GameManager setOffensivePositionSelected:NO_POSITION_SELECTED];
+	
+	[self.superview setNeedsDisplay];
+}
+
+- (void)playerTouchesBegan:(int)position
+{
+}
+
+- (void)playerTouchesMoved:(CGPoint)movePoint :(CGPoint)hitPointTest
+{	
+}
+
+- (void)playerTouchesEnded:(CGPoint)hitPointTest
+{
+}
+
+- (void)show
+{
+	if (!isVisable)
+	{
+		CGContextRef context = UIGraphicsGetCurrentContext();
+		
+		self.alpha = 0.0;
+		
+		[UIView beginAnimations:nil context:context];
+		[UIView setAnimationCurve:UIViewAnimationCurveLinear];
+		[UIView setAnimationDuration:0.5];
+		
+		self.alpha = 1.0;
+		
+		[UIView commitAnimations];
+		
+		isVisable = TRUE;
+	}
+}
+
+- (void)hide
+{
+	if (isVisable)
+	{
+		CGContextRef context = UIGraphicsGetCurrentContext();
+		
+		self.alpha = 1.0;
+		
+		[UIView beginAnimations:nil context:context];
+		[UIView setAnimationCurve:UIViewAnimationCurveLinear];
+		[UIView setAnimationDuration:0.5];
+		
+		self.alpha = 0.0;
+		
+		[UIView commitAnimations];
+		
+		isVisable = FALSE;
+	}
+}
+
+- (BOOL) pointInside:(CGPoint)point withEvent:(UIEvent *)event 
+{
+	for (int x = 0; x < self.subviews.count; x++)
+	{
+		UIView *subview = [self.subviews objectAtIndex:x];
+		
+		// Skip the PopUp subview unless it is visable
+		if(subview.tag != 1 || [subview isVisable] == TRUE)
+		{
+			if (point.x >= subview.frame.origin.x && point.x <= subview.frame.origin.x + [subview frame].size.width)
+			{
+				if (point.y >= subview.frame.origin.y && point.y <= subview.frame. origin.y + [subview frame].size.height)
+				{
+					return YES;
+				}
+			}
+		}
+	}
+	
+	return NO;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
+@end
