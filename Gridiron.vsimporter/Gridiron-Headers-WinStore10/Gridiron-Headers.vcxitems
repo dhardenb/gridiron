@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsRootNamespace>Gridiron_Headers</ItemsRootNamespace>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <Keyword>IslandwoodProj</Keyword>
+    <ItemsProjectGuid>{E8C787F5-BE18-4397-B0DB-C18AD7E0AAB5}</ItemsProjectGuid>
+    <SharedGUID>{9DDBD470-322D-49BC-9F36-4DC7A904A889}</SharedGUID>
+  </PropertyGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\AskQuestions.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\BigPlay.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\AboutView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\AiManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\CoinTossView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\ControlPanelView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\DefenseView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\DefensiveStanceView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\Defines.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\FieldView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\FootballView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\GameManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\GameMenuView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\GameSetupView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\GridironAppDelegate.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\HeadsUpDisplayView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\LocationSelectorView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\MainHelpView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\MainMenuView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\OffenseView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\OffensivePlaysView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\PlayFromScrimmageView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\PlayFromScrimmageViewController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\PlayResultsView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\PlayerView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\PromptButton.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\TitleView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\TransitionManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\ZoneSelector.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\ClockManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\DefenseViewTouchEvents.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\DefensiveFormationData.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Distance.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Down.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\FieldGoalBlockView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\FieldGoalView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\FieldPosition.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\FootballShadowView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Game.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\GameClock.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\GameScore.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\GameTimeouts.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\GridironTests\GridironTests-Prefix.pch" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Gridiron_Prefix.pch" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\KickOffPlay.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\KickoffReturnView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\KickoffView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\LineOfScrimmage.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\LocationTapper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\OffensiveFormationData.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PassingPlay.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PassingYardageManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PlayClock.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PlayerMover.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PlayerShadowView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PointAfterStopView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PointAfterView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Posession.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PuntPlay.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PuntReturnView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PuntView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Quarter.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\RollManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\RushingPlay.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\SpecialTeamsView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\StatisticsManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\TeamScore.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\TeamTimeouts.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\ZoneView.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+</Project>

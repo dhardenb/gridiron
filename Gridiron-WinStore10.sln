@@ -1,0 +1,87 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gridiron", "Gridiron", "{ADD3665C-F358-4ED9-B9B2-8AF90BE2FBB3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Gridiron", "Gridiron.vsimporter\Gridiron-WinStore10\Gridiron.vcxproj", "{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GridironTests", "Gridiron.vsimporter\GridironTests-WinStore10\GridironTests.vcxproj", "{63690825-F919-48F8-8370-69E4D848679F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Gridiron-Headers", "Gridiron.vsimporter\Gridiron-Headers-WinStore10\Gridiron-Headers.vcxitems", "{E8C787F5-BE18-4397-B0DB-C18AD7E0AAB5}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Gridiron.vsimporter\Gridiron-Headers-WinStore10\Gridiron-Headers.vcxitems*{E8C787F5-BE18-4397-B0DB-C18AD7E0AAB5}*SharedItemsImports = 9
+		Gridiron.vsimporter\Gridiron-Headers-WinStore10\Gridiron-Headers.vcxitems*{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}*SharedItemsImports = 4
+		Gridiron.vsimporter\Gridiron-Headers-WinStore10\Gridiron-Headers.vcxitems*{63690825-F919-48F8-8370-69E4D848679F}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Ad Hoc Distribution|ARM = Ad Hoc Distribution|ARM
+		Ad Hoc Distribution|Win32 = Ad Hoc Distribution|Win32
+		App Store Distribution|ARM = App Store Distribution|ARM
+		App Store Distribution|Win32 = App Store Distribution|Win32
+		Debug|ARM = Debug|ARM
+		Debug|Win32 = Debug|Win32
+		Release|ARM = Release|ARM
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Ad Hoc Distribution|ARM.ActiveCfg = Ad Hoc Distribution|ARM
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Ad Hoc Distribution|ARM.Build.0 = Ad Hoc Distribution|ARM
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Ad Hoc Distribution|ARM.Deploy.0 = Ad Hoc Distribution|ARM
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Ad Hoc Distribution|Win32.ActiveCfg = Ad Hoc Distribution|Win32
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Ad Hoc Distribution|Win32.Build.0 = Ad Hoc Distribution|Win32
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Ad Hoc Distribution|Win32.Deploy.0 = Ad Hoc Distribution|Win32
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.App Store Distribution|ARM.ActiveCfg = App Store Distribution|ARM
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.App Store Distribution|ARM.Build.0 = App Store Distribution|ARM
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.App Store Distribution|ARM.Deploy.0 = App Store Distribution|ARM
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.App Store Distribution|Win32.ActiveCfg = App Store Distribution|Win32
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.App Store Distribution|Win32.Build.0 = App Store Distribution|Win32
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.App Store Distribution|Win32.Deploy.0 = App Store Distribution|Win32
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Debug|ARM.ActiveCfg = Debug|ARM
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Debug|ARM.Build.0 = Debug|ARM
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Debug|ARM.Deploy.0 = Debug|ARM
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Debug|Win32.Build.0 = Debug|Win32
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Debug|Win32.Deploy.0 = Debug|Win32
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Release|ARM.ActiveCfg = Release|ARM
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Release|ARM.Build.0 = Release|ARM
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Release|ARM.Deploy.0 = Release|ARM
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Release|Win32.ActiveCfg = Release|Win32
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Release|Win32.Build.0 = Release|Win32
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7}.Release|Win32.Deploy.0 = Release|Win32
+		{63690825-F919-48F8-8370-69E4D848679F}.Ad Hoc Distribution|ARM.ActiveCfg = Ad Hoc Distribution|ARM
+		{63690825-F919-48F8-8370-69E4D848679F}.Ad Hoc Distribution|ARM.Build.0 = Ad Hoc Distribution|ARM
+		{63690825-F919-48F8-8370-69E4D848679F}.Ad Hoc Distribution|ARM.Deploy.0 = Ad Hoc Distribution|ARM
+		{63690825-F919-48F8-8370-69E4D848679F}.Ad Hoc Distribution|Win32.ActiveCfg = Ad Hoc Distribution|Win32
+		{63690825-F919-48F8-8370-69E4D848679F}.Ad Hoc Distribution|Win32.Build.0 = Ad Hoc Distribution|Win32
+		{63690825-F919-48F8-8370-69E4D848679F}.Ad Hoc Distribution|Win32.Deploy.0 = Ad Hoc Distribution|Win32
+		{63690825-F919-48F8-8370-69E4D848679F}.App Store Distribution|ARM.ActiveCfg = App Store Distribution|ARM
+		{63690825-F919-48F8-8370-69E4D848679F}.App Store Distribution|ARM.Build.0 = App Store Distribution|ARM
+		{63690825-F919-48F8-8370-69E4D848679F}.App Store Distribution|ARM.Deploy.0 = App Store Distribution|ARM
+		{63690825-F919-48F8-8370-69E4D848679F}.App Store Distribution|Win32.ActiveCfg = App Store Distribution|Win32
+		{63690825-F919-48F8-8370-69E4D848679F}.App Store Distribution|Win32.Build.0 = App Store Distribution|Win32
+		{63690825-F919-48F8-8370-69E4D848679F}.App Store Distribution|Win32.Deploy.0 = App Store Distribution|Win32
+		{63690825-F919-48F8-8370-69E4D848679F}.Debug|ARM.ActiveCfg = Debug|ARM
+		{63690825-F919-48F8-8370-69E4D848679F}.Debug|ARM.Build.0 = Debug|ARM
+		{63690825-F919-48F8-8370-69E4D848679F}.Debug|ARM.Deploy.0 = Debug|ARM
+		{63690825-F919-48F8-8370-69E4D848679F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{63690825-F919-48F8-8370-69E4D848679F}.Debug|Win32.Build.0 = Debug|Win32
+		{63690825-F919-48F8-8370-69E4D848679F}.Debug|Win32.Deploy.0 = Debug|Win32
+		{63690825-F919-48F8-8370-69E4D848679F}.Release|ARM.ActiveCfg = Release|ARM
+		{63690825-F919-48F8-8370-69E4D848679F}.Release|ARM.Build.0 = Release|ARM
+		{63690825-F919-48F8-8370-69E4D848679F}.Release|ARM.Deploy.0 = Release|ARM
+		{63690825-F919-48F8-8370-69E4D848679F}.Release|Win32.ActiveCfg = Release|Win32
+		{63690825-F919-48F8-8370-69E4D848679F}.Release|Win32.Build.0 = Release|Win32
+		{63690825-F919-48F8-8370-69E4D848679F}.Release|Win32.Deploy.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E46C3970-D17A-45A7-AF15-BC95F1E4CDA7} = {ADD3665C-F358-4ED9-B9B2-8AF90BE2FBB3}
+		{63690825-F919-48F8-8370-69E4D848679F} = {ADD3665C-F358-4ED9-B9B2-8AF90BE2FBB3}
+		{E8C787F5-BE18-4397-B0DB-C18AD7E0AAB5} = {ADD3665C-F358-4ED9-B9B2-8AF90BE2FBB3}
+	EndGlobalSection
+EndGlobal

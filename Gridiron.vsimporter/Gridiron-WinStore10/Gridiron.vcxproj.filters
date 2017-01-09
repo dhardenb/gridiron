@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{4e9406ee-79c0-4c34-a086-bada6dc51aaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{e7b76c4a-40ef-4d61-aa4e-149a890dadb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controller">
+      <UniqueIdentifier>{ABF2865B-7C40-431E-8384-6A7B0A50EBF0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Images">
+      <UniqueIdentifier>{5FE823F5-DE62-4C93-96C0-7FAE417E4F20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{D1CBAE67-5871-43D5-AA08-8BDD40E2D4B6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{382FA695-5FCE-463B-9A53-697EDB4AF9F1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\GameModel">
+      <UniqueIdentifier>{4C36F3EF-9874-4A27-B622-CEAFDD5BD9D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{A9D28B19-670E-4464-9C80-F4218BF7ECBC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{115D49E6-8853-4AD7-B938-2649A7C599A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Special Teams Views">
+      <UniqueIdentifier>{A2EFD11B-F913-45A0-8A5A-A3EEB9BD9DAF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Xcode Variable Files">
+      <UniqueIdentifier>{CB77957D-2B2D-45C4-8619-1F8F2935CE3E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="default.rd.xml" />
+    <AppxManifest Include="Package.appxmanifest" />
+    <None Include="Gridiron_TemporaryKey.pfx" />
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <ClInclude Include="..\..\Gridiron_Prefix.pch" />
+    <ClangCompile Include="..\..\BigPlay.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\AboutView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\AiManager.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\CoinTossView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\ControlPanelView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\DefenseView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\DefensiveStanceView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\FieldView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\FootballView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\GameManager.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\GameMenuView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\GameSetupView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\GridironAppDelegate.m">
+      <Filter>Main</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\HeadsUpDisplayView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\LocationSelectorView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\MainHelpView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\MainMenuView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\OffenseView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\OffensivePlaysView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\PlayFromScrimmageView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\PlayFromScrimmageViewController.m">
+      <Filter>Controller</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\PlayResultsView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\PlayerView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\PromptButton.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\TitleView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\TransitionManager.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\ZoneSelector.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\ClockManager.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\DefensiveFormationData.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Distance.m">
+      <Filter>Model\GameModel</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Down.m">
+      <Filter>Model\GameModel</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\FieldGoalBlockView.m">
+      <Filter>View\Special Teams Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\FieldGoalView.m">
+      <Filter>View\Special Teams Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\FieldPosition.m">
+      <Filter>Model\GameModel</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\FootballShadowView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Game.m">
+      <Filter>Model\GameModel</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\GameClock.m">
+      <Filter>Model\GameModel</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\GameScore.m">
+      <Filter>Model\GameModel</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\GameTimeouts.m">
+      <Filter>Model\GameModel</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\KickOffPlay.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\KickoffReturnView.m">
+      <Filter>View\Special Teams Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\KickoffView.m">
+      <Filter>View\Special Teams Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\LineOfScrimmage.m">
+      <Filter>Model\GameModel</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\OffensiveFormationData.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\PassingPlay.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\PassingYardageManager.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\PlayClock.m">
+      <Filter>Model\GameModel</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\PlayerShadowView.m">
+      <Filter>View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\PointAfterStopView.m">
+      <Filter>View\Special Teams Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\PointAfterView.m">
+      <Filter>View\Special Teams Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Posession.m">
+      <Filter>Model\GameModel</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\PuntPlay.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\PuntReturnView.m">
+      <Filter>View\Special Teams Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\PuntView.m">
+      <Filter>View\Special Teams Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Quarter.m">
+      <Filter>Model\GameModel</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\RollManager.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\RushingPlay.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\SpecialTeamsView.m">
+      <Filter>View\Special Teams Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\StatisticsManager.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\TeamScore.m">
+      <Filter>Model\GameModel</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\TeamTimeouts.m">
+      <Filter>Model\GameModel</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\ZoneView.m">
+      <Filter>Main</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\main.m">
+      <Filter>Main</Filter>
+    </ClangCompile>
+    <SBInfoPlistCopy Include="..\..\Info.plist" />
+    <SBResourceCopy Include="..\..\Default-568h@2x.png">
+      <Filter>Images</Filter>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\Default.png">
+      <Filter>Images</Filter>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\Default@2x.png">
+      <Filter>Images</Filter>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\Entitlements.plist">
+      <Filter>Resources</Filter>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\Freshman.ttf">
+      <Filter>Resources</Filter>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\Icon.png">
+      <Filter>Images</Filter>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\Icon@2x.png">
+      <Filter>Images</Filter>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\about.htm">
+      <Filter>Resources</Filter>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\coordinates.plist">
+      <Filter>Resources</Filter>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\help.htm">
+      <Filter>Resources</Filter>
+    </SBResourceCopy>
+    <Text Include="Gridiron-Ad Hoc Distribution-xcvars.txt">
+      <Filter>Xcode Variable Files</Filter>
+    </Text>
+    <Text Include="Gridiron-App Store Distribution-xcvars.txt">
+      <Filter>Xcode Variable Files</Filter>
+    </Text>
+    <Text Include="Gridiron-Debug-xcvars.txt">
+      <Filter>Xcode Variable Files</Filter>
+    </Text>
+    <Text Include="Gridiron-Release-xcvars.txt">
+      <Filter>Xcode Variable Files</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
