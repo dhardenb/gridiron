@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{7debcafa-6add-43a2-8097-bf3a04c910b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{ee7e7223-5428-4c9b-bb9b-5aa944a5605f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GridironTests">
+      <UniqueIdentifier>{B289E245-7849-40D2-B0B3-612560DB485E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GridironTests\Supporting Files">
+      <UniqueIdentifier>{0A7181F2-09C1-43B2-819B-4B32E7AD47CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GridironTests\Supporting Files\en">
+      <UniqueIdentifier>{3613DF54-89FA-4723-A537-9425FC5B5DEA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{BAA5ADF9-3E85-49F9-8195-F5DA2DDD7524}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Xcode Variable Files">
+      <UniqueIdentifier>{D0852A5E-57C4-4E17-86BE-14F22968E72A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="default.rd.xml" />
+    <AppxManifest Include="Package.appxmanifest" />
+    <None Include="GridironTests_TemporaryKey.pfx" />
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <ClInclude Include="..\..\GridironTests\GridironTests-Prefix.pch" />
+    <ClangCompile Include="..\..\BigPlay.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\Classes\GameManager.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\ClockManager.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\DefensiveFormationData.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\GridironTests\BigPlayTests.m">
+      <Filter>GridironTests</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\GridironTests\main.m">
+      <Filter>GridironTests\Supporting Files</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\KickOffPlay.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\OffensiveFormationData.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\PassingPlay.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\PassingYardageManager.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\PuntPlay.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\RollManager.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\RushingPlay.m">
+      <Filter>Model</Filter>
+    </ClangCompile>
+    <SBInfoPlistCopy Include="..\..\GridironTests\GridironTests-Info.plist" />
+    <SBResourceCopy Include="..\..\GridironTests\en.lproj\InfoPlist.strings">
+      <Filter>GridironTests\Supporting Files\en</Filter>
+    </SBResourceCopy>
+    <Text Include="GridironTests-Ad Hoc Distribution-xcvars.txt">
+      <Filter>Xcode Variable Files</Filter>
+    </Text>
+    <Text Include="GridironTests-App Store Distribution-xcvars.txt">
+      <Filter>Xcode Variable Files</Filter>
+    </Text>
+    <Text Include="GridironTests-Debug-xcvars.txt">
+      <Filter>Xcode Variable Files</Filter>
+    </Text>
+    <Text Include="GridironTests-Release-xcvars.txt">
+      <Filter>Xcode Variable Files</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

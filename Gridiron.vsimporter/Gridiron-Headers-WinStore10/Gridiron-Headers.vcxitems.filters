@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Controller">
+      <UniqueIdentifier>{71449D86-D3AB-4E50-BFA2-E03E0261B9D9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controller\Event Handlers">
+      <UniqueIdentifier>{3A561B4D-B0B1-419C-9C30-1725D4A84ADF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GridironTests">
+      <UniqueIdentifier>{0719C1A6-7E70-411B-AA57-062EE47572CE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GridironTests\Supporting Files">
+      <UniqueIdentifier>{E9BD8DAE-3BFB-4B79-9C03-AD89CD7755B1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{6F581A4A-8DF7-4AC1-93FD-C22E98F2CA78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{11E4F3A9-250E-4AB8-80AE-E067C615D15C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\GameModel">
+      <UniqueIdentifier>{80D4533D-F35B-42FE-9D99-880C80402FC1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{2A6DCE83-D320-4E70-B864-776BFDA2E6F1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Special Teams Views">
+      <UniqueIdentifier>{52CEC4A4-2F90-48A6-9082-38DFDD76ABBC}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\AskQuestions.h">
+      <Filter>Controller\Event Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\BigPlay.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\AboutView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\AiManager.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\CoinTossView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\ControlPanelView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\DefenseView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\DefensiveStanceView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\Defines.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\FieldView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\FootballView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\GameManager.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\GameMenuView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\GameSetupView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\GridironAppDelegate.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\HeadsUpDisplayView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\LocationSelectorView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\MainHelpView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\MainMenuView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\OffenseView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\OffensivePlaysView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\PlayFromScrimmageView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\PlayFromScrimmageViewController.h">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\PlayResultsView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\PlayerView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\PromptButton.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\TitleView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\TransitionManager.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\ZoneSelector.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\ClockManager.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\DefenseViewTouchEvents.h">
+      <Filter>Controller\Event Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\DefensiveFormationData.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Distance.h">
+      <Filter>Model\GameModel</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Down.h">
+      <Filter>Model\GameModel</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\FieldGoalBlockView.h">
+      <Filter>View\Special Teams Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\FieldGoalView.h">
+      <Filter>View\Special Teams Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\FieldPosition.h">
+      <Filter>Model\GameModel</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\FootballShadowView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Game.h">
+      <Filter>Model\GameModel</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\GameClock.h">
+      <Filter>Model\GameModel</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\GameScore.h">
+      <Filter>Model\GameModel</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\GameTimeouts.h">
+      <Filter>Model\GameModel</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\GridironTests\GridironTests-Prefix.pch">
+      <Filter>GridironTests\Supporting Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Gridiron_Prefix.pch">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\KickOffPlay.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\KickoffReturnView.h">
+      <Filter>View\Special Teams Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\KickoffView.h">
+      <Filter>View\Special Teams Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\LineOfScrimmage.h">
+      <Filter>Model\GameModel</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\LocationTapper.h">
+      <Filter>Controller\Event Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\OffensiveFormationData.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PassingPlay.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PassingYardageManager.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PlayClock.h">
+      <Filter>Model\GameModel</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PlayerMover.h">
+      <Filter>Controller\Event Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PlayerShadowView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PointAfterStopView.h">
+      <Filter>View\Special Teams Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PointAfterView.h">
+      <Filter>View\Special Teams Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Posession.h">
+      <Filter>Model\GameModel</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PuntPlay.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PuntReturnView.h">
+      <Filter>View\Special Teams Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\PuntView.h">
+      <Filter>View\Special Teams Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Quarter.h">
+      <Filter>Model\GameModel</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\RollManager.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\RushingPlay.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\SpecialTeamsView.h">
+      <Filter>View\Special Teams Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\StatisticsManager.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\TeamScore.h">
+      <Filter>Model\GameModel</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\TeamTimeouts.h">
+      <Filter>Model\GameModel</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\ZoneView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
